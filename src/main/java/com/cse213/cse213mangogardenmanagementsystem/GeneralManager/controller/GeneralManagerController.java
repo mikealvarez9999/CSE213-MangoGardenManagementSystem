@@ -1,24 +1,30 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.Employee; // Import Employee from the parent package
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 // This controller manages the General Manager Dashboard (GeneralManagerLayoutView.fxml)
 public class GeneralManagerController {
 
     @FXML
-    private Label welcomeLabel; // Corresponds to the label in the FXML header
+    private Label welcomeLabel;
 
     @FXML
     private VBox contentContainer; // The area where dynamic content (views) will be loaded
 
     private Employee currentUser;
 
+    // Base path for FXML component files within the GeneralManager resource folder
+    private static final String FXML_BASE_PATH = "/com/cse213/cse213mangogardenmanagementsystem/GeneralManager/";
+
     /**
      * Called by reflection from the LoginController to inject the authenticated user data.
-     * @param user The logged-in Employee object (GeneralManager).
      */
     public void initData(Employee user) {
         this.currentUser = user;
@@ -34,47 +40,52 @@ public class GeneralManagerController {
 
     @FXML
     private void loadTaskSummaryView() {
-        // Placeholder for loading a view showing assigned tasks and completion status
-        setContent("Task Summary", "Viewing tasks assigned and tracking progress...", "bg-blue-100");
+        loadFXMLView("TaskSummaryView.fxml");
     }
 
     @FXML
     private void loadBudgetRequestsView() {
-        // Placeholder for loading a view showing pending budget requests for approval
-        setContent("Budget Requests", "Displaying all pending budget requests. Approval required.", "bg-red-100");
+        loadFXMLView("BudgetRequestsView.fxml");
     }
 
     @FXML
     private void loadInventoryCheckView() {
-
-        // Placeholder for loading a view to check current inventory levels
-        setContent("Inventory Status", "Displaying current mango stock and spoilage rates.", "bg-green-100");
+        loadFXMLView("InventoryCheckView.fxml");
     }
 
     @FXML
     private void loadPayrollGenerationView() {
-        // Placeholder for generating and viewing payroll information
-        setContent("Generate Payroll", "Prepare weekly payroll records for worker disbursement.", "bg-yellow-100");
+        loadFXMLView("PayrollGenerationView.fxml");
     }
 
     /**
-     * Helper function to simulate dynamic content loading by changing the contentContainer.
-     * In a real application, you would use an FXMLLoader here to load a separate FXML file.
+     * Loads an FXML file into the contentContainer.
+     * @param fxmlFilename The name of the FXML file (e.g., "TaskSummaryView.fxml").
      */
-    private void setContent(String title, String message, String colorStyle) {
-        // Clear previous content
-        contentContainer.getChildren().clear();
+    private void loadFXMLView(String fxmlFilename) {
+        try {
+            // Construct the full absolute path
+            String path = FXML_BASE_PATH + fxmlFilename;
 
-        Label titleLabel = new Label(title);
-        titleLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10px;");
+            // 1. Create FXMLLoader
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
 
-        Label messageLabel = new Label(message);
-        messageLabel.setStyle("-fx-font-size: 14px; -fx-padding: 10px;");
+            // 2. Load the Node/Parent from the component FXML
+            Node view = loader.load();
 
-        VBox contentBox = new VBox(10, titleLabel, messageLabel);
-        contentBox.setStyle("-fx-background-color: " + colorStyle + "; -fx-padding: 20px; -fx-border-color: #333; -fx-border-width: 1px; -fx-border-radius: 5px;");
-        contentBox.setMaxWidth(Double.MAX_VALUE);
+            // 3. Clear the container and add the new view
+            contentContainer.getChildren().clear();
+            contentContainer.getChildren().add(view);
 
-        contentContainer.getChildren().add(contentBox);
+            // Note: If the component FXML has its own controller, you can access it here:
+            // Object componentController = loader.getController();
+            // If componentController implements an interface for data passing, you would call it here.
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Display error message in the content area itself
+            contentContainer.getChildren().clear();
+            contentContainer.getChildren().add(new Label("Error: Could not load component view " + fxmlFilename + ". Check the file path and FXML structure."));
+        }
     }
 }
