@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <TableView fx:id="employeeTV" layoutX="14.0" layoutY="74.0" prefHeight="273.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="idTC" prefWidth="45.0" text="ID" />
+          <TableColumn fx:id="nameTC" prefWidth="177.0" text="Employee Name" />
+            <TableColumn fx:id="roleTC" prefWidth="97.0" text="Role" />
+            <TableColumn fx:id="joiningdateTC" prefWidth="111.0" text="Joining Date" />
+            <TableColumn fx:id="phoneTC" prefWidth="142.0" text="Phone No." />
+        </columns>
+      </TableView>
+      <Label layoutX="74.0" layoutY="361.0" prefHeight="17.0" prefWidth="157.0" text="Total Number of Employees:" />
+      <Label fx:id="totalEmployeesLabel" layoutX="231.0" layoutY="361.0" prefHeight="17.0" prefWidth="157.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="266.0" layoutY="29.0" mnemonicParsing="false" onAction="#refreshButtonOnAction" text="Refresh">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
