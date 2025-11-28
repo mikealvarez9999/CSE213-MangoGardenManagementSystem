@@ -14,7 +14,7 @@ open module com.cse213.cse213mangogardenmanagementsystem {
     // 2. Open specific controller sub-packages for FXML reflection/injection
 //    opens com.cse213.cse213mangogardenmanagementsystem.Accountant.controller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.Customer.contoller to javafx.fxml;
-//    opens com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.contoller to javafx.fxml;
+//    opens com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.controller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.GardenWorker.contoller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.Owner.controller to javafx.fxml;

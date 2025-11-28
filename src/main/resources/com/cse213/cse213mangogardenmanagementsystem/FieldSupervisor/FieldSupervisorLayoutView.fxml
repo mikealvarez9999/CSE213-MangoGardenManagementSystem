@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.contoller.FieldSupervisorController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.controller.FieldSupervisorController">
 
-</AnchorPane>
+    <top>
+        <VBox alignment="CENTER_LEFT" prefHeight="70.0" style="-fx-background-color: #1E4E43; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="MANGO GARDEN - FIELD SUPERVISOR" textFill="#fefefe">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="welcomeLabel" text="Welcome Message Placeholder" textFill="#fefefe">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox alignment="TOP_LEFT" prefWidth="240.0" spacing="5.0" style="-fx-background-color: #1E4E43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
+            <children>
+                <Button maxWidth="Infinity" onAction="#loadAssignDailyTasksView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Assign Daily Tasks" />
+                <Button maxWidth="Infinity" onAction="#loadRecordWorkerAttendanceView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Worker Attendance" />
+                <Button maxWidth="Infinity" onAction="#loadMonitorTaskCompletionView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Monitor Task Completion" />
+                <Button maxWidth="Infinity" onAction="#loadMonitorResourceUsageView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Log Resource Usage" />
+                <Button maxWidth="Infinity" onAction="#loadProvideInstructionsView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Provide Instructions" />
+                <Button maxWidth="Infinity" onAction="#loadRequestToolsView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Request Tools/Resources" />
+                <Button maxWidth="Infinity" onAction="#loadSuggestImprovementsView" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Suggest Improvements" />
+                <Button maxWidth="Infinity" onAction="#loadGenerateDailyFieldSummaryView" prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 65px;" text="Generate Daily Field Summary" textAlignment="CENTER" wrapText="true" />
+
+
+                <VBox VBox.vgrow="ALWAYS" />
+                <Label style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" text="Ver 1.0" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <BorderPane.margin>
+                <Insets right="5.0" />
+            </BorderPane.margin>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="contentContainer" alignment="TOP_LEFT" spacing="10.0" style="-fx-padding: 20px;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Select a task module from the navigation bar." />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
