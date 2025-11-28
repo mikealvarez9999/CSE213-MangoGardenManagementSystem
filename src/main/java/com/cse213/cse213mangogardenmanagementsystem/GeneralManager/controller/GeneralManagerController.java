@@ -30,7 +30,7 @@ public class GeneralManagerController {
         this.currentUser = user;
 
         // Set welcome message in the header
-        welcomeLabel.setText("Welcome, " + user.getName() + " | Role: " + user.getRole());
+        welcomeLabel.setText("Welcome, " + currentUser.getName() + " | Role: " + currentUser.getRole());
 
         // Load the default view (e.g., Task Summary) upon login
         loadTaskSummaryView();
@@ -40,6 +40,7 @@ public class GeneralManagerController {
 
     @FXML
     private void loadTaskSummaryView() {
+
         loadFXMLView("TaskSummaryView.fxml");
     }
 

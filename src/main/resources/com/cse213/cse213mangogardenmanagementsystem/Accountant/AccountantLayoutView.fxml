@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.AccountantLayoutController"
-            prefHeight="400.0" prefWidth="600.0">
+<!-- Background is near white: #fefefe -->
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.AccountantController">
 
-</AnchorPane>
+    <!-- TOP: Header/Welcome Area (Primary Dark Green: #1E4E43) -->
+    <top>
+        <VBox alignment="CENTER_LEFT" style="-fx-background-color: #1E4E43; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="MANGO GARDEN - Accountant" textFill="#fefefe">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <!-- Welcome Label uses Bright Yellow/Green accent -->
+                <Label fx:id="welcomeLabel" text="Welcome Message Placeholder" textFill="#fefefe">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- LEFT: Navigation Menu (Primary Dark Green: #1E4E43) -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="240.0" spacing="15.0" style="-fx-background-color: #1E4E43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
+            <children>
+                <Button onAction="#loadRecordTransactionView" text="Record Transaction" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadUpdateTransactionView" text="View/Edit Transactions" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadGenerateFinancialStatementView" text="Generate Statement" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadDisburseSalaryView" text="Disburse Salary" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadSubmitBudgetRequestView" text="Submit Budget Request" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadSubmitLargeExpenseView" text="Large Expense Request" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadProcessToolRequestView" text="Process Tool Requests" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadProcessVehicleRequestView" text="Process Vehicle Maint." maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+
+                <VBox VBox.vgrow="ALWAYS" />
+                <Label text="Ver 1.0" style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" />
+            </children>
+            <BorderPane.margin>
+                <Insets right="5.0" />
+            </BorderPane.margin>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Dynamic Content Area (Content background remains #fefefe) -->
+    <center>
+        <VBox fx:id="contentContainer" alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 20px;">
+            <!-- Text uses the Primary Dark Color -->
+            <Label text="Select a financial management module to view transactions and requests." style="-fx-font-size: 18px; -fx-opacity: 0.7; -fx-padding: 50px; -fx-text-fill: #1E4E43;" />
+        </VBox>
+    </center>
+</BorderPane>

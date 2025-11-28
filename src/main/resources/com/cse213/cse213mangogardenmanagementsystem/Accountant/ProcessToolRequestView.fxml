@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.ProcessToolController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="PROCESS FIELD SUPERVISOR TOOL REQUESTS">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Review incoming requests for new tools and generate the necessary budget request if approved." wrapText="true" />
+
+        <TableView fx:id="requestTable" layoutX="20.0" layoutY="90.0" prefHeight="450.0" prefWidth="660.0">
+            <columns>
+                <TableColumn prefWidth="150.0" text="Requester" />
+                <TableColumn prefWidth="200.0" text="Item/Resource" />
+                <TableColumn prefWidth="100.0" text="Quantity" />
+                <TableColumn prefWidth="150.0" text="Estimated Cost" />
+                <TableColumn prefWidth="100.0" text="Status" />
+            </columns>
+        </TableView>
+
+        <Button layoutX="420.0" layoutY="560.0" text="Reject Selected" onAction="#handleRejectRequest" />
+        <Button layoutX="530.0" layoutY="560.0" text="Approve &amp; Generate Budget" onAction="#handleApproveRequest" />
+    </children>
+</AnchorPane>

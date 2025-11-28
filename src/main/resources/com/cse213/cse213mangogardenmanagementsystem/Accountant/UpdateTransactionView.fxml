@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.UpdateTransactionController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="VIEW &amp; EDIT TRANSACTION RECORDS">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Select a transaction from the table to view and modify its details below." wrapText="true" />
+
+        <TableView fx:id="transactionTable" layoutX="20.0" layoutY="80.0" prefHeight="350.0" prefWidth="660.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="100.0" text="Date" />
+                <TableColumn prefWidth="150.0" text="Description" />
+                <TableColumn prefWidth="100.0" text="Category" />
+                <TableColumn prefWidth="100.0" text="Type" />
+                <TableColumn prefWidth="100.0" text="Amount" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="20.0" layoutY="450.0" text="Edit Selected Transaction" />
+        <TextField fx:id="txtEditAmount" layoutX="20.0" layoutY="475.0" promptText="Amount" />
+        <DatePicker fx:id="dateEditDate" layoutX="200.0" layoutY="475.0" promptText="Date" />
+        <TextArea fx:id="txtEditDescription" layoutX="20.0" layoutY="520.0" prefHeight="50.0" prefWidth="300.0" promptText="Description" />
+
+        <Button layoutX="580.0" layoutY="540.0" onAction="#handleSaveChanges" text="Save Changes" />
+      <ComboBox layoutX="403.0" layoutY="475.0" prefWidth="150.0" promptText="Type" />
+    </children>
+</AnchorPane>

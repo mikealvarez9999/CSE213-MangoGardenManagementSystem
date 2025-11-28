@@ -2,6 +2,7 @@ open module com.cse213.cse213mangogardenmanagementsystem {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.base;
+    requires java.desktop;
 
     exports com.cse213.cse213mangogardenmanagementsystem;
 

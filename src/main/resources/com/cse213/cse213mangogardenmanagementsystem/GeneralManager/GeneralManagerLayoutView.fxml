@@ -14,7 +14,7 @@
     <top>
         <VBox alignment="CENTER_LEFT" style="-fx-background-color: #1E4E43FF; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" BorderPane.alignment="CENTER">
             <children>
-                <Label text="MANGO GARDEN - GENERAL MANAGER" textFill="#fefefe">
+                <Label text="MANGO GARDEN" textFill="#fefefe">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
