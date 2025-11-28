@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="532.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="532.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.FireEmployeesController">
    <children>
       <TableView fx:id="employeeTV" layoutX="50.0" layoutY="77.0" prefHeight="273.0" prefWidth="573.0">
          <columns>

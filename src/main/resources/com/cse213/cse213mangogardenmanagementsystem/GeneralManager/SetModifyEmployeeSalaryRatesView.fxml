@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.SetModifyEmployeeSalaryRatesController">
+   <children>
+      <TableView fx:id="salaryRatesTV" layoutX="91.0" layoutY="70.0" prefHeight="200.0" prefWidth="418.0">
+        <columns>
+          <TableColumn fx:id="employeeTypeTC" prefWidth="147.0" text="Employee Type" />
+          <TableColumn fx:id="intervalTC" minWidth="0.0" prefWidth="125.0" text="Salary Interval" />
+            <TableColumn fx:id="rateTC" minWidth="0.0" prefWidth="145.0" text="Salary Rate" />
+        </columns>
+      </TableView>
+      <Label layoutX="91.0" layoutY="295.0" text="Select Employee Type:" />
+      <Label layoutX="97.0" layoutY="323.0" text="Select Salary Interval:" />
+      <Label layoutX="128.0" layoutY="351.0" text="Set Salary Rate:" />
+      <TextField fx:id="setRateTF" layoutX="229.0" layoutY="347.0" />
+      <ComboBox fx:id="selectTypeCB" layoutX="229.0" layoutY="291.0" prefWidth="150.0" />
+      <ComboBox fx:id="selectIntervalCB" layoutX="229.0" layoutY="319.0" prefWidth="150.0" />
+      <Button layoutX="413.0" layoutY="319.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Changes" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="42.0" layoutY="391.0" prefHeight="17.0" prefWidth="516.0" textFill="#16bc00">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

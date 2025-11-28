@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="314.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.CreateAndAssignTaskController">
+   <children>
+      <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="50.0" prefHeight="17.0" prefWidth="101.0" text="Enter Task ID:" />
+      <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="78.0" prefHeight="17.0" prefWidth="101.0" text="Enter Task Details:" />
+      <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="193.0" prefHeight="17.0" prefWidth="101.0" text="Assign task to:" />
+      <TextField fx:id="taskIDTF" layoutX="187.0" layoutY="46.0" />
+      <TextArea fx:id="taskDetailsTA" layoutX="187.0" layoutY="79.0" prefHeight="101.0" prefWidth="348.0" />
+      <ComboBox fx:id="fieldSupervisorCB" layoutX="187.0" layoutY="189.0" prefHeight="25.0" prefWidth="314.0" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="49.0" layoutY="264.0" prefHeight="17.0" prefWidth="502.0" textFill="#0cb900">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="48.0" layoutY="228.0" prefHeight="17.0" prefWidth="120.0" text="Expected Completion:" />
+      <DatePicker layoutX="188.0" layoutY="224.0" />
+   </children>
+</AnchorPane>

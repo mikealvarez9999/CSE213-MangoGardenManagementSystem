@@ -6,21 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.ViewBudgetRequestsController">
    <children>
       <Label layoutX="194.0" layoutY="35.0" text="View Budget Requests">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TableView layoutX="61.0" layoutY="80.0" prefHeight="285.0" prefWidth="478.0">
+      <TableView fx:id="budgetRequestsTV" layoutX="61.0" layoutY="80.0" prefHeight="285.0" prefWidth="478.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Request ID" />
-          <TableColumn prefWidth="99.0" text="Requested By" />
-            <TableColumn prefWidth="82.0" text="Amount" />
-            <TableColumn prefWidth="128.0" text="Purpose" />
-            <TableColumn prefWidth="93.0" text="Status" />
+          <TableColumn fx:id="requestIDTC" prefWidth="75.0" text="Request ID" />
+          <TableColumn fx:id="requestedByTC" prefWidth="99.0" text="Requested By" />
+            <TableColumn fx:id="amountTC" prefWidth="82.0" text="Amount" />
+            <TableColumn fx:id="purposeTC" prefWidth="128.0" text="Purpose" />
+            <TableColumn fx:id="statusTC" prefWidth="93.0" text="Status" />
         </columns>
       </TableView>
    </children>
