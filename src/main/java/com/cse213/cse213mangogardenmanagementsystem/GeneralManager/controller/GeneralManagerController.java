@@ -33,29 +33,29 @@ public class GeneralManagerController {
         welcomeLabel.setText("Welcome, " + user.getName() + " | Role: " + user.getRole());
 
         // Load the default view (e.g., Task Summary) upon login
-        loadTaskSummaryView();
+//        loadTaskSummaryView();
     }
 
     // --- Navigation Handlers (Methods called by FXML Buttons) ---
 
     @FXML
     private void loadTaskSummaryView() {
-        loadFXMLView("TaskSummaryView.fxml");
+        loadFXMLView("TrackTasksView.fxml");
     }
 
     @FXML
     private void loadBudgetRequestsView() {
-        loadFXMLView("BudgetRequestsView.fxml");
+        loadFXMLView("ApproveRejectBudgetRequestsView.fxml");
     }
 
     @FXML
     private void loadInventoryCheckView() {
-        loadFXMLView("InventoryCheckView.fxml");
+        loadFXMLView("CheckInventoryView.fxml");
     }
 
     @FXML
     private void loadPayrollGenerationView() {
-        loadFXMLView("PayrollGenerationView.fxml");
+        loadFXMLView("GenerateWorkerPayrollView.fxml");
     }
 
     /**
