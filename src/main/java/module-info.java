@@ -17,7 +17,7 @@ open module com.cse213.cse213mangogardenmanagementsystem {
 //    opens com.cse213.cse213mangogardenmanagementsystem.GardenWorker.contoller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.Owner.controller to javafx.fxml;
-//    opens com.cse213.cse213mangogardenmanagementsystem.TransportManager.contoller to javafx.fxml;
-//    opens com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.contoller to javafx.fxml;
+//    opens com.cse213.cse213mangogardenmanagementsystem.TransportManager.controller to javafx.fxml;
+//    opens com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.controller to javafx.fxml;
 //    opens com.cse213.cse213mangogardenmanagementsystem.test.controller to javafx.fxml;
 }
