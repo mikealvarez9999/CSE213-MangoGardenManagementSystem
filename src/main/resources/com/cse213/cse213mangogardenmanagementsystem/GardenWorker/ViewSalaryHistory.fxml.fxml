@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GardenWorker.contoller.ViewSalaryHistoryController">
+   <children>
+      <Label fx:id="salaryHistoryLabel" layoutX="193.0" layoutY="51.0" prefHeight="32.0" prefWidth="193.0" text="Salary History ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="monthComboBox" layoutX="37.0" layoutY="107.0" prefHeight="25.0" prefWidth="143.0" promptText="Month" />
+      <Button fx:id="recordSalaryStatusButton" layoutX="367.0" layoutY="107.0" mnemonicParsing="false" onAction="#recordSalaryStatusButtonOnAction" prefHeight="25.0" prefWidth="143.0" text=" Record Salary Status" />
+      <TableView fx:id="salaryHistoryTableView" layoutX="60.0" layoutY="161.0" prefHeight="200.0" prefWidth="458.0">
+        <columns>
+          <TableColumn fx:id="monthColumn" prefWidth="114.0" text="Month" />
+            <TableColumn fx:id="salaryColumn" prefWidth="114.0" text="Salary" />
+            <TableColumn fx:id="attendanceColumn" prefWidth="114.0" text="Attendance" />
+            <TableColumn fx:id="evalutionColumn" prefWidth="114.0" text="Evalution " />
+        </columns>
+      </TableView>
+      <TextField fx:id="amountTextField" layoutX="199.0" layoutY="107.0" prefHeight="25.0" prefWidth="143.0" promptText="Amount" />
+   </children>
+</AnchorPane>
