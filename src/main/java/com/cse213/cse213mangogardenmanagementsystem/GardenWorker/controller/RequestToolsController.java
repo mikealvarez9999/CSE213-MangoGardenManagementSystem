@@ -1,8 +1,9 @@
-package com.cse213.cse213mangogardenmanagementsystem.GardenWorker.contoller;
+package com.cse213.cse213mangogardenmanagementsystem.GardenWorker.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class RequestToolsController {
@@ -14,6 +15,8 @@ public class RequestToolsController {
     private Button submitReqButton;
     @javafx.fxml.FXML
     private TextField quantityTextField;
+    @javafx.fxml.FXML
+    private Label requestToolsLabel;
 
     @javafx.fxml.FXML
     public void submitReqButtonOnAction(ActionEvent actionEvent) {

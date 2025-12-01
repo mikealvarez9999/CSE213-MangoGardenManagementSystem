@@ -17,6 +17,8 @@ public class CancelAnOrderController {
     private Button cancelOrderButton;
     @javafx.fxml.FXML
     private Label orderStatusLabel;
+    @javafx.fxml.FXML
+    private Label cancelOrderLabel;
 
     @javafx.fxml.FXML
     public void checkOrderButtonOnAction(ActionEvent actionEvent) {

@@ -1,10 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.Customer.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class ProvideFeedbackController {
     @javafx.fxml.FXML
@@ -15,6 +12,8 @@ public class ProvideFeedbackController {
     private ComboBox subjectComboBox;
     @javafx.fxml.FXML
     private Button submitFeedbackButton;
+    @javafx.fxml.FXML
+    private Label provideFeedbackLabel;
 
     @javafx.fxml.FXML
     public void submitFeedbackButtonOnAction(ActionEvent actionEvent) {

@@ -18,6 +18,8 @@ public class PlaceAnOrderController {
     private TextField quantityTextField;
     @javafx.fxml.FXML
     private TextField orderIdTextField1;
+    @javafx.fxml.FXML
+    private Label placeAnOrderLabel;
 
     @javafx.fxml.FXML
     public void placeOrderButtonOnAction(ActionEvent actionEvent) {

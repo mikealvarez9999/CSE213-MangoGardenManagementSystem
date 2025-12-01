@@ -19,6 +19,8 @@ public class MakePaymentsController {
     private ComboBox paymentMethodComboBox;
     @javafx.fxml.FXML
     private Button payNowButton;
+    @javafx.fxml.FXML
+    private Label makePaymentLabel;
 
     @javafx.fxml.FXML
     public void payNowButtonOnAction(ActionEvent actionEvent) {

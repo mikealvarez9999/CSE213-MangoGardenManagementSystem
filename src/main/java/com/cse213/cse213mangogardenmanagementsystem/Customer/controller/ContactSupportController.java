@@ -17,6 +17,8 @@ public class ContactSupportController {
     private TextArea descriptionTextArea;
     @javafx.fxml.FXML
     private Label confirmationTextLabel;
+    @javafx.fxml.FXML
+    private Label contactSupportLabel;
 
     @javafx.fxml.FXML
     public void sendRequestButtonOnAction(ActionEvent actionEvent) {

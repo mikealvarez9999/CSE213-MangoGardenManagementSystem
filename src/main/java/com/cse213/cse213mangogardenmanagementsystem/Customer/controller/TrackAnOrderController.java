@@ -18,6 +18,8 @@ public class TrackAnOrderController {
     private Button trackOrderButton;
     @javafx.fxml.FXML
     private TableColumn deliveryProgressColumn;
+    @javafx.fxml.FXML
+    private Label trackAnOrderLabel;
 
     @javafx.fxml.FXML
     public void trackOrderButtonOnAction(ActionEvent actionEvent) {
