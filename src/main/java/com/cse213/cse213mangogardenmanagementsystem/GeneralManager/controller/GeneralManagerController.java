@@ -89,5 +89,6 @@ public class GeneralManagerController {
     @FXML
     public void loadSalaryRateView(ActionEvent actionEvent) {
         loadFXMLView("SetModifyEmployeeSalaryRatesView.fxml");
+
     }
 }
