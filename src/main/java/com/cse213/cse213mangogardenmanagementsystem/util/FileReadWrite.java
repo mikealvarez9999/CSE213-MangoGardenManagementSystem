@@ -1,50 +1,75 @@
 package com.cse213.cse213mangogardenmanagementsystem.util;
 
+import javafx.collections.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Utility class for saving and loading serializable lists of objects
- * to and from binary files.
- * This ensures persistence logic is centralized and reusable across all models.
- */
+
 public class FileReadWrite {
 
-    /**
-     * Saves a serializable list of objects to a specified binary file.
-     * @param dataList The List of objects to save.
-     * @param fileName The name of the file (e.g., "transactions.bin").
-     */
-    public static <T extends Serializable> void saveData(List<T> dataList, String fileName) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(dataList);
-        } catch (IOException e) {
-            System.err.println("Error saving data to " + fileName + ": " + e.getMessage());
+    private static class AppendableObjectOutputStream extends ObjectOutputStream {
+        public AppendableObjectOutputStream(OutputStream out) throws IOException {
+            super(out);
+        }
+
+        @Override
+        protected void writeStreamHeader() throws IOException {
         }
     }
 
-    /**
-     * Reads a list of serializable objects from a specified binary file.
-     * @param fileName The name of the file (e.g., "transactions.bin").
-     * @return The List of objects loaded, or a new empty ArrayList if the file does not exist or loading fails.
-     */
-    public static <T extends Serializable> List<T> loadData(String fileName) {
+    
+    public static <T> ObservableList<T> loadData(Class<T> className, String fileName) {
+        ObservableList<T> list = FXCollections.observableArrayList();
+        
         File file = new File(fileName);
-        if (file.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                Object obj = ois.readObject();
-                if (obj instanceof List) {
-                    // Suppress unchecked cast since we check for List instance type
-                    @SuppressWarnings("unchecked")
-                    List<T> loadedList = (List<T>) obj;
-                    return loadedList;
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                System.err.println("Error reading data file " + fileName + ": " + e.getMessage());
-            }
+        if (!file.exists()) {
+            return list;
         }
-        // If file not found or loading failed, return an empty list
-        return new ArrayList<>();
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            while (true) {
+                try {
+                    Object obj = ois.readObject();
+                    if (className.isInstance(obj)) {
+                        list.add(className.cast(obj));
+                    }
+                } catch (EOFException eof) {
+                    break;
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+    
+    public static <T> void saveData(ObservableList<T> list, String fileName) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            for (T obj : list) {
+                oos.writeObject(obj);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static <T> void append(T object, String fileName) {
+        try {
+            File file = new File(fileName);
+            boolean appendRequiresSkip = file.exists() && file.length() > 0;
+            ObjectOutputStream oos;
+
+            if (appendRequiresSkip) {
+                oos = new AppendableObjectOutputStream(new FileOutputStream(fileName, true));
+            } else {
+                oos = new ObjectOutputStream(new FileOutputStream(fileName, true));
+            }
+
+            oos.writeObject(object);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
