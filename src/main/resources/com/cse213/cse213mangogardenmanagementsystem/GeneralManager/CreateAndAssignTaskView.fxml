@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -17,20 +16,17 @@
            </font>
        </Label>
        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Enter task details, and click &quot;Create &amp; Assign Task&quot;." wrapText="true" />
-
-       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="87.0" prefHeight="17.0" prefWidth="101.0" text="Enter Task ID:" />
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="115.0" prefHeight="17.0" prefWidth="101.0" text="Enter Task Details:" />
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="230.0" prefHeight="17.0" prefWidth="101.0" text="Assign task to:" />
-      <TextField fx:id="taskIDTF" layoutX="153.0" layoutY="83.0" />
       <TextArea fx:id="taskDetailsTA" layoutX="153.0" layoutY="116.0" prefHeight="101.0" prefWidth="348.0" />
-      <ComboBox fx:id="fieldSupervisorCB" layoutX="153.0" layoutY="226.0" prefHeight="25.0" prefWidth="314.0" />
+      <ComboBox fx:id="fieldSupervisorCB" layoutX="153.0" layoutY="226.0" prefHeight="25.0" prefWidth="348.0" />
       <Label fx:id="successLabel" alignment="CENTER" layoutX="15.0" layoutY="344.0" prefHeight="17.0" prefWidth="502.0" textFill="#0cb900">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="265.0" prefHeight="17.0" prefWidth="120.0" text="Expected Completion:" />
-      <DatePicker layoutX="153.0" layoutY="261.0" />
+      <DatePicker fx:id="expectedDP" layoutX="153.0" layoutY="261.0" />
       <Button layoutX="188.0" layoutY="308.0" mnemonicParsing="false" onAction="#createButtonOA" text="Create &amp; Assign Task" />
    </children>
 </AnchorPane>

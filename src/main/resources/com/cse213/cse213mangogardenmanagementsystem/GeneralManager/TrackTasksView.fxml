@@ -15,14 +15,14 @@
        </Label>
        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View all the tasks and their details." wrapText="true" />
 
-       <TableView layoutX="20.0" layoutY="78.0" prefHeight="298.0" prefWidth="787.0">
+       <TableView fx:id="tasksTV" layoutX="20.0" layoutY="78.0" prefHeight="298.0" prefWidth="787.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="TaskID" />
-          <TableColumn prefWidth="189.0" text="Task Description" />
-            <TableColumn prefWidth="141.0" text="Assigned To" />
-            <TableColumn prefWidth="132.0" text="Assigned On" />
-            <TableColumn prefWidth="145.0" text="Expected Completion" />
-            <TableColumn prefWidth="104.0" text="Status" />
+          <TableColumn fx:id="taskIDTC" prefWidth="75.0" text="TaskID" />
+          <TableColumn fx:id="descriptionTC" prefWidth="189.0" text="Task Description" />
+            <TableColumn fx:id="assignedToTC" prefWidth="141.0" text="Assigned To" />
+            <TableColumn fx:id="assignedOnTC" prefWidth="132.0" text="Assigned On" />
+            <TableColumn fx:id="expectedTC" prefWidth="145.0" text="Expected Completion" />
+            <TableColumn fx:id="statusTC" prefWidth="104.0" text="Status" />
         </columns>
       </TableView>
    </children>
