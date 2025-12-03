@@ -34,19 +34,17 @@
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="560.0" prefWidth="263.0" spacing="15.0" style="-fx-background-color: #1e4e43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
             <children>
-                <!-- Navigation Label uses Bright Yellow/Green accent -->
-                <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-padding: 0 0 10 0; -fx-text-fill: #F0F347;" text="MANAGEMENT MODULES" />
 
                 <!-- Navigation Buttons (Bright Yellow/Green #F0F347 with Dark Green Text #1E4E43FF) -->
-                <Button maxWidth="Infinity" onAction="#loadBudgetRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Budget Requests" />
-
                 <Button maxWidth="Infinity" onAction="#loadApproveRejectBudgetRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Approve/Reject Budget Requests" />
+            <Button maxWidth="Infinity" onAction="#loadViewBudgetRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Budget Requests" />
 
                 <Button maxWidth="Infinity" onAction="#loadCreateAndAssignTasksView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Create &amp; Assign Tasks" />
             <Button maxWidth="Infinity" onAction="#loadTrackTaskCompletionView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Track Task Completion" />
             <Button maxWidth="Infinity" onAction="#loadGenerateWeeklyTaskSummaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Generate Weekly Task Summary" />
             <Button maxWidth="Infinity" onAction="#loadSalaryRateView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Set/Modify Salary Rates" />
             <Button maxWidth="Infinity" onAction="#loadGenerateWorkerPayrollView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Generate Worker Payroll" />
+            <Button maxWidth="Infinity" onAction="#loadCheckInventoryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Check Inventory" />
                 <Label style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" text="Ver 1.0" />
             </children>
             <BorderPane.margin>

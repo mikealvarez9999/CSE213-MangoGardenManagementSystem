@@ -68,7 +68,7 @@ public class GeneralManagerController {
 
     @FXML
     public void loadTrackTaskCompletionView(ActionEvent actionEvent) {
-        loadFXMLView("TrackTasksView");
+        loadFXMLView("TrackTasksView.fxml");
     }
 
     @FXML
@@ -89,5 +89,15 @@ public class GeneralManagerController {
     @FXML
     public void loadSalaryRateView(ActionEvent actionEvent) {
         loadFXMLView("SetModifyEmployeeSalaryRatesView.fxml");
+    }
+
+    @FXML
+    public void loadCheckInventoryView(ActionEvent actionEvent) {
+        loadFXMLView("CheckInventoryView.fxml");
+    }
+
+    @FXML
+    public void loadViewBudgetRequestsView(ActionEvent actionEvent) {
+        loadFXMLView("ViewBudgetRequestsView.fxml");
     }
 }
