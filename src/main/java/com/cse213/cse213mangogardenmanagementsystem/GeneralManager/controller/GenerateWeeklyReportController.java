@@ -4,6 +4,7 @@ import javafx.scene.control.*;
 import javafx.event.*;
 
 public class GenerateWeeklyReportController {
+
     @javafx.fxml.FXML
     private ComboBox cmbStatementType;
     @javafx.fxml.FXML

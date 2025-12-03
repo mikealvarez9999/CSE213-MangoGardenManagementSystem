@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.Employee;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -31,37 +32,8 @@ public class GeneralManagerController {
 
         // Set welcome message in the header
         welcomeLabel.setText("Welcome, " + user.getName() + " | Role: " + user.getRole());
-
-        // Load the default view (e.g., Task Summary) upon login
-//        loadTaskSummaryView();
     }
 
-    // --- Navigation Handlers (Methods called by FXML Buttons) ---
-
-    @FXML
-    private void loadTaskSummaryView() {
-        loadFXMLView("TrackTasksView.fxml");
-    }
-
-    @FXML
-    private void loadBudgetRequestsView() {
-        loadFXMLView("ApproveRejectBudgetRequestsView.fxml");
-    }
-
-    @FXML
-    private void loadInventoryCheckView() {
-        loadFXMLView("CheckInventoryView.fxml");
-    }
-
-    @FXML
-    private void loadPayrollGenerationView() {
-        loadFXMLView("GenerateWorkerPayrollView.fxml");
-    }
-
-    /**
-     * Loads an FXML file into the contentContainer.
-     * @param fxmlFilename The name of the FXML file (e.g., "TaskSummaryView.fxml").
-     */
     private void loadFXMLView(String fxmlFilename) {
         try {
             // Construct the full absolute path
