@@ -4,36 +4,39 @@ import java.io.Serializable;
 
 public class MangoInventory implements Serializable {
 
-    protected String MangoQuantity ;
-    protected String SpoilageQuantity;
+    private String batchId;
+    private String mangoQuantity;
+    private String spoiled;
+    private MangoBatch batch;  // NEW
 
+    public MangoInventory(String batchId, String mangoQuantity, String spoiled, MangoBatch batch) {
+        this.batchId = batchId;
+        this.mangoQuantity = mangoQuantity;
+        this.spoiled = spoiled;
+        this.batch = batch;
+    }
 
-    public MangoInventory(String mangoQuantity, String spoilageQuantity) {
-        MangoQuantity = mangoQuantity;
-        SpoilageQuantity = spoilageQuantity;
+    public String getBatchId() {
+        return batchId;
     }
 
     public String getMangoQuantity() {
-        return MangoQuantity;
+        return mangoQuantity;
     }
 
     public void setMangoQuantity(String mangoQuantity) {
-        MangoQuantity = mangoQuantity;
+        this.mangoQuantity = mangoQuantity;
     }
 
-    public String getSpoilageQuantity() {
-        return SpoilageQuantity;
+    public String getSpoiled() {
+        return spoiled;
     }
 
-    public void setSpoilageQuantity(String spoilageQuantity) {
-        SpoilageQuantity = spoilageQuantity;
+    public MangoBatch getBatch() {
+        return batch;
     }
 
-    @Override
-    public String toString() {
-        return "MangoInventory{" +
-                "MangoQuantity='" + MangoQuantity + '\'' +
-                ", SpoilageQuantity='" + SpoilageQuantity + '\'' +
-                '}';
+    public void setBatch(MangoBatch batch) {
+        this.batch = batch;
     }
 }

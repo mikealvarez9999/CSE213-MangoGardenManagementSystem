@@ -1,6 +1,10 @@
 package com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.MangoBatch;
+import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.WarehouseManager;
+import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -23,14 +27,14 @@ public class RecordBatchController {
     private TextArea confirmMessageTextArea;
 
     private static final String FILE_NAME = "batchData.bin";
-    private ArrayList<MangoBatch> batchList;
+    private ObservableList<MangoBatch> batchList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         mangoTypeComboBox.getItems().addAll("Fazli", "Langra", "Himsagar");
 
-        // File থেকে load করে ArrayList init
-        batchList = loadBatchListFromText();
+
+
     }
 
     @FXML
@@ -52,7 +56,8 @@ public class RecordBatchController {
         batchList.add(batch);
 
         // Save updated list to text file
-        saveBatchListToText(batchList);
+        WarehouseManager.recordBatch(batchList);
+//        FileReadWrite.saveData(batchList, FILE_NAME);
 
         confirmMessageTextArea.setText("Batch recorded successfully!");
 
@@ -63,41 +68,5 @@ public class RecordBatchController {
         mangoTypeComboBox.setValue(null);
     }
 
-    // =========================
-    // CSV/Text File Handling
-    // =========================
-    private ArrayList<MangoBatch> loadBatchListFromText() {
-        ArrayList<MangoBatch> list = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 4) {
-                    MangoBatch batch = new MangoBatch(parts[0], parts[1], LocalDate.parse(parts[2]), parts[3]);
-                    list.add(batch);
-                }
-            }
-        } catch (Exception e) {
-            // file not exist or empty
-        }
-        return list;
-    }
 
-    private void saveBatchListToText(ArrayList<MangoBatch> list) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
-            for (MangoBatch b : list) {
-                writer.println(b.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    // Optional: Delete batch by ID
-    public void deleteBatchById(String batchId) {
-        batchList.removeIf(b -> b.getBatchId().equals(batchId));
-        saveBatchListToText(batchList);
-    }
 }

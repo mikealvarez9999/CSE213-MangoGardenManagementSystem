@@ -1,17 +1,44 @@
 package com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
+
 
 public class WarehouseManager {
 
-    public boolean requestBatch(){
-        // TODO: implement logic
+    private static final String FILE_NAME = "batchData.bin";
+    private static final String INV_FILE_NAME = "inventoryData.bin";
+
+    public static boolean recordBatch(ObservableList<MangoBatch> batchList){
+//        // File থেকে load করে ArrayList init
+//        batchList = FileReadWrite.loadData(MangoBatch.class,FILE_NAME);
+        FileReadWrite.saveData(batchList, FILE_NAME);
+
         return false;
     }
 
-    public boolean mangoInventory() {
-        // TODO: implement logic
-        return false;
+    public static ObservableList<MangoBatch> getMangoBatch(){
+        ObservableList<MangoBatch> batchList;
+        batchList = FileReadWrite.loadData(MangoBatch.class,FILE_NAME);
+        return batchList;
+    }
+
+    public static ObservableList<MangoInventory> getMangoInventory(){
+        ObservableList<MangoInventory> invList;
+        invList = FileReadWrite.loadData(MangoInventory.class,INV_FILE_NAME);
+        return invList;
+    }
+
+    public static boolean mangoInventory(ObservableList<MangoInventory> invList) {
+        try {
+            FileReadWrite.saveData(invList, INV_FILE_NAME);
+            return true;
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+            return false;
+        }
     }
 
 
