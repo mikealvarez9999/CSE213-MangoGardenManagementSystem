@@ -12,7 +12,14 @@
 
 <AnchorPane prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.ApproveLargeExpensesController">
    <children>
-      <TableView fx:id="largeExpensesTV" layoutX="70.0" layoutY="74.0" prefHeight="200.0" prefWidth="461.0">
+       <Label layoutX="20.0" layoutY="20.0" text="APPROVE/REJECT LARGE EXPENSE REQUESTS">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View and approve/reject large expense requests made by the Accountant." wrapText="true" />
+
+       <TableView fx:id="largeExpensesTV" layoutX="72.0" layoutY="85.0" prefHeight="200.0" prefWidth="461.0">
         <columns>
           <TableColumn fx:id="requestedByTC" prefWidth="96.0" text="Requested By" />
           <TableColumn fx:id="transactionIDTC" prefWidth="98.0" text="Transaction ID" />
@@ -20,20 +27,15 @@
             <TableColumn fx:id="reasonTC" prefWidth="182.0" text="Reason for request" />
         </columns>
       </TableView>
-      <Text layoutX="81.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Transaction ID to apply action:" />
-      <TextField fx:id="idToApproveTF" layoutX="284.0" layoutY="296.0" />
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="70.0" layoutY="426.0" prefHeight="17.0" prefWidth="461.0" textFill="#46b915">
+      <Text layoutX="83.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Transaction ID to apply action:" />
+      <TextField fx:id="idToApproveTF" layoutX="286.0" layoutY="307.0" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="72.0" layoutY="437.0" prefHeight="17.0" prefWidth="461.0" textFill="#46b915">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Text layoutX="153.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Approve/Reject Large Expense Requests">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Text>
-      <Text layoutX="200.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Action:" />
-      <ComboBox fx:id="actionCB" layoutX="284.0" layoutY="333.0" prefWidth="150.0" />
-      <Button layoutX="258.0" layoutY="377.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action" />
+      <Text layoutX="202.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Action:" />
+      <ComboBox fx:id="actionCB" layoutX="286.0" layoutY="344.0" prefWidth="150.0" />
+      <Button layoutX="260.0" layoutY="388.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action" />
    </children>
 </AnchorPane>

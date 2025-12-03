@@ -8,10 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="586.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.GenerateWorkerPayrollController">
+<AnchorPane prefHeight="651.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.GenerateWorkerPayrollController">
    <children>
-      <TableView fx:id="payrollTV" layoutX="30.0" layoutY="71.0" prefHeight="420.0" prefWidth="748.0">
+       <Label layoutX="20.0" layoutY="20.0" text="GENERATE WORKER PAYROLL">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Load the existing data, change if needed and update it." wrapText="true" />
+       <TableView fx:id="payrollTV" layoutX="20.0" layoutY="129.0" prefHeight="420.0" prefWidth="748.0">
          <columns>
             <TableColumn fx:id="workerIDTC" editable="false" prefWidth="60.0" text="ID" />
             <TableColumn fx:id="workerNameTC" editable="false" prefWidth="140.0" text="Name" />
@@ -23,17 +28,17 @@
             <TableColumn fx:id="netPayTC" editable="false" prefWidth="117.0" text="Net Pay" />
          </columns>
       </TableView>
-      <Button fx:id="saveButton" layoutX="349.0" layoutY="507.0" prefWidth="110.0" text="Save Payroll" />
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="34.0" layoutY="546.0" prefHeight="17.0" prefWidth="748.0" textFill="#22ab00">
+      <Button fx:id="saveButton" layoutX="339.0" layoutY="565.0" prefWidth="110.0" text="Save Payroll" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="24.0" layoutY="604.0" prefHeight="17.0" prefWidth="748.0" textFill="#22ab00">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="33.0" layoutY="35.0" text="Select Payroll Month:" />
-      <Label layoutX="312.0" layoutY="35.0" text="Select Payroll Year:" />
-      <ComboBox layoutX="151.0" layoutY="31.0" prefHeight="25.0" prefWidth="138.0" />
-      <ComboBox layoutX="419.0" layoutY="31.0" prefHeight="25.0" prefWidth="138.0" />
-      <Button layoutX="600.0" layoutY="31.0" mnemonicParsing="false" text="Load Workers">
+      <Label layoutX="23.0" layoutY="93.0" text="Select Payroll Month:" />
+      <Label layoutX="302.0" layoutY="93.0" text="Select Payroll Year:" />
+      <ComboBox layoutX="141.0" layoutY="89.0" prefHeight="25.0" prefWidth="138.0" />
+      <ComboBox layoutX="409.0" layoutY="89.0" prefHeight="25.0" prefWidth="138.0" />
+      <Button layoutX="590.0" layoutY="89.0" mnemonicParsing="false" text="Load Workers">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

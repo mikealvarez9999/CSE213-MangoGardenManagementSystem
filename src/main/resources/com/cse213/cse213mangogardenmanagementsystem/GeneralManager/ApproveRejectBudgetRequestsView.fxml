@@ -9,14 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="479.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.ApproveRejectBudgetRequestsController">
+<AnchorPane prefHeight="487.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.ApproveRejectBudgetRequestsController">
    <children>
-      <Label layoutX="144.0" layoutY="35.0" text="Approve/Reject Budget Requests">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TableView fx:id="budgetRequestsTV" layoutX="61.0" layoutY="80.0" prefHeight="250.0" prefWidth="478.0">
+       <Label layoutX="20.0" layoutY="20.0" text="APPROVE/REJECT BUDGET REQUESTS">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View requests, then accept or reject them." wrapText="true" />
+      <TableView fx:id="budgetRequestsTV" layoutX="101.0" layoutY="89.0" prefHeight="250.0" prefWidth="478.0">
         <columns>
           <TableColumn fx:id="requestIDTC" prefWidth="75.0" text="Request ID" />
           <TableColumn fx:id="requestedByTC" prefWidth="99.0" text="Requested By" />
@@ -25,16 +26,16 @@
             <TableColumn fx:id="statusTC" prefWidth="93.0" text="Status" />
         </columns>
       </TableView>
-      <Label layoutX="91.0" layoutY="357.0" text="Enter Request ID:" />
-      <TextField fx:id="enterIDTF" layoutX="196.0" layoutY="353.0" />
-      <Label layoutX="102.0" layoutY="391.0" text="Choose Action:" />
-      <ComboBox fx:id="actionCB" layoutX="196.0" layoutY="387.0" prefWidth="150.0" />
-      <Button layoutX="407.0" layoutY="368.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action">
+      <Label layoutX="131.0" layoutY="366.0" text="Enter Request ID:" />
+      <TextField fx:id="enterIDTF" layoutX="236.0" layoutY="362.0" />
+      <Label layoutX="142.0" layoutY="400.0" text="Choose Action:" />
+      <ComboBox fx:id="actionCB" layoutX="236.0" layoutY="396.0" prefWidth="150.0" />
+      <Button layoutX="447.0" layoutY="377.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="41.0" layoutY="436.0" prefHeight="17.0" prefWidth="519.0" text="OMUK" textFill="#12b500">
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="81.0" layoutY="445.0" prefHeight="17.0" prefWidth="519.0" textFill="#12b500">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -10,10 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.ApproveSpecialOrdersController">
    <children>
-      <TableView fx:id="specialOrdersTV" layoutX="70.0" layoutY="74.0" prefHeight="200.0" prefWidth="461.0">
+       <Label layoutX="20.0" layoutY="20.0" text="APPROVE/REJECT SPECIAL ORDERS">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View and approve/reject special orders." wrapText="true" />
+
+       <TableView fx:id="specialOrdersTV" layoutX="71.0" layoutY="83.0" prefHeight="200.0" prefWidth="461.0">
         <columns>
           <TableColumn fx:id="orderIDTC" prefWidth="85.0" text="Order ID" />
           <TableColumn fx:id="customerIDTC" prefWidth="109.0" text="Customer ID" />
@@ -22,20 +28,15 @@
             <TableColumn fx:id="isApprovedTC" prefWidth="97.0" text="Is Approved?" />
         </columns>
       </TableView>
-      <Text layoutX="70.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Special Order ID to apply action:" />
-      <TextField fx:id="idToApproveTF" layoutX="284.0" layoutY="296.0" />
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="70.0" layoutY="426.0" prefHeight="17.0" prefWidth="461.0" textFill="#46b915">
+      <Text layoutX="71.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Special Order ID to apply action:" />
+      <TextField fx:id="idToApproveTF" layoutX="285.0" layoutY="305.0" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="71.0" layoutY="435.0" prefHeight="17.0" prefWidth="461.0" textFill="#46b915">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Text layoutX="187.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Approve/Reject Special Orders">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Text>
-      <Text layoutX="200.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Action:" />
-      <ComboBox fx:id="actionCB" layoutX="284.0" layoutY="333.0" prefWidth="150.0" />
-      <Button layoutX="258.0" layoutY="377.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action" />
+      <Text layoutX="201.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Action:" />
+      <ComboBox fx:id="actionCB" layoutX="285.0" layoutY="342.0" prefWidth="150.0" />
+      <Button layoutX="259.0" layoutY="386.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action" />
    </children>
 </AnchorPane>
