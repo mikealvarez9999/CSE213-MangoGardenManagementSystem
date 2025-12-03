@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class RequestharvestController
+public class RequestHarvestController
 {
     @javafx.fxml.FXML
     private TextField requestQuantityTextField;

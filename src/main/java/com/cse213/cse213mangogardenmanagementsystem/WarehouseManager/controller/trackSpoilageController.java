@@ -6,7 +6,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class TrackspoilageController
+public class trackSpoilageController
 {
     @javafx.fxml.FXML
     private TableColumn quantityColumn;
@@ -17,9 +17,9 @@ public class TrackspoilageController
     @javafx.fxml.FXML
     private TextField spoilageQuantityTextField;
     @javafx.fxml.FXML
-    private TableColumn spoilageQuantityColumn;
+    private TableView trackSpoilageTableView;
     @javafx.fxml.FXML
-    private TableView trackspoilageTableView;
+    private TableColumn spoilageQuantityColumn;
 
     @javafx.fxml.FXML
     public void initialize() {

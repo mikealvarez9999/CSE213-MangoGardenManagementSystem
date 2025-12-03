@@ -3,14 +3,14 @@ package com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RecordBatch implements Serializable {
+public class MangoBatch implements Serializable {
 
     protected String batchId;
     protected String mangoType;
     protected LocalDate harvestDate;
     protected String fieldNumber;
 
-    public RecordBatch(String batchId, String mangoType, LocalDate harvestDate, String fieldNumber) {
+    public MangoBatch(String batchId, String mangoType, LocalDate harvestDate, String fieldNumber) {
         this.batchId = batchId;
         this.mangoType = mangoType;
         this.harvestDate = harvestDate;
@@ -51,7 +51,7 @@ public class RecordBatch implements Serializable {
 
     @Override
     public String toString() {
-        return "RecordBatch{" +
+        return "MangoBatch{" +
                 "batchId='" + batchId + '\'' +
                 ", mangoType='" + mangoType + '\'' +
                 ", harvestDate=" + harvestDate +

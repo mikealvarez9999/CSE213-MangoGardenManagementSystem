@@ -1,27 +1,41 @@
 package com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.controller;
 
+import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.MangoBatch;
+import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.MangoInventory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+
+import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class mangoInventoryController {
-    @javafx.fxml.FXML
-    private TableColumn mangoTypeColumn;
-    @javafx.fxml.FXML
-    private TableColumn quantityColumn;
-    @javafx.fxml.FXML
-    private TableColumn harvestDateColumn;
-    @javafx.fxml.FXML
-    private TableColumn batchIdColumn;
-    @javafx.fxml.FXML
-    private ComboBox batchIDComboBox;
-    @javafx.fxml.FXML
-    private TableColumn fieldnumberColumn;
-    @javafx.fxml.FXML
-    private TextField mangoQuantityTextField;
 
-    @javafx.fxml.FXML
-    public void saveInventoryOnMouseClick(ActionEvent actionEvent) {
+    @FXML
+    private TableColumn<MangoBatch, String> batchIdColumn;
+    @FXML
+    private TableColumn<MangoBatch, String> mangoTypeColumn;
+    @FXML
+    private TableColumn<MangoBatch, String> harvestDateColumn;
+    @FXML
+    private TableColumn<MangoBatch, String> fieldnumberColumn;
+    @FXML
+    private TextField mangoQuantityTextField;
+    @FXML
+    private TableView<MangoBatch> mangoInventoryTableView;
+
+
+    @FXML
+    public void initialize() {
+
+    }
+
+    @FXML
+    public void saveInventoryOnMouseClick(ActionEvent event) {
+
+
     }
 }

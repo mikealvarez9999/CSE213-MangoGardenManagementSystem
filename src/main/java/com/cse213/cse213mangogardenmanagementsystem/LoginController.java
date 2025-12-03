@@ -58,10 +58,10 @@ public class LoginController {
                     fxmlFilename = "GeneralManagerLayoutView.fxml";
                     break;
                 case "TransportManager":
-                    fxmlFilename = "TransportManagerDashboard.fxml";
+                    fxmlFilename = "TransportManagerLayoutView.fxml";
                     break;
                 case "WarehouseManager":
-                    fxmlFilename = "WarehouseManagerDashboard.fxml";
+                    fxmlFilename = "WarehouseManagerLayoutView.fxml";
                     break;
                 case "Accountant":
                     fxmlFilename = "AccountantLayoutView.fxml";
