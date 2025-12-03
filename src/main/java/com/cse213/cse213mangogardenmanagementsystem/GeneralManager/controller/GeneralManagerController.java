@@ -60,4 +60,44 @@ public class GeneralManagerController {
             contentContainer.getChildren().add(new Label("Error: Could not load component view " + fxmlFilename + ". Check the file path and FXML structure."));
         }
     }
+
+    @FXML
+    public void loadCreateAndAssignTasksView(ActionEvent actionEvent) {
+        loadFXMLView("CreateAndAssignTaskView.fxml");
+    }
+
+    @FXML
+    public void loadTrackTaskCompletionView(ActionEvent actionEvent) {
+        loadFXMLView("TrackTasksView.fxml");
+    }
+
+    @FXML
+    public void loadGenerateWeeklyTaskSummaryView(ActionEvent actionEvent) {
+        loadFXMLView("GenerateWeeklyReportView.fxml");
+    }
+
+    @FXML
+    public void loadApproveRejectBudgetRequestsView(ActionEvent actionEvent) {
+        loadFXMLView("ApproveRejectBudgetRequestsView.fxml");
+    }
+
+    @FXML
+    public void loadGenerateWorkerPayrollView(ActionEvent actionEvent) {
+        loadFXMLView("GenerateWorkerPayrollView.fxml");
+    }
+
+    @FXML
+    public void loadSalaryRateView(ActionEvent actionEvent) {
+        loadFXMLView("SetModifyEmployeeSalaryRatesView.fxml");
+    }
+
+    @FXML
+    public void loadCheckInventoryView(ActionEvent actionEvent) {
+        loadFXMLView("CheckInventoryView.fxml");
+    }
+
+    @FXML
+    public void loadViewBudgetRequestsView(ActionEvent actionEvent) {
+        loadFXMLView("ViewBudgetRequestsView.fxml");
+    }
 }

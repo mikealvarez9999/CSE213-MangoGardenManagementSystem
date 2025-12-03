@@ -12,4 +12,8 @@ public class CreateAndAssignTaskController {
     private Label successLabel;
     @javafx.fxml.FXML
     private TextArea taskDetailsTA;
+
+    @javafx.fxml.FXML
+    public void createButtonOA(ActionEvent actionEvent) {
+    }
 }
