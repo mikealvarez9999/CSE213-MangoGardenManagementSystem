@@ -10,18 +10,14 @@ public class LargeExpenseRequest implements Serializable {
 
     private final int id;
     private LocalDate date;
-    private String category;
-    private String type;
     private double amount;
     private String description;
     private String status;
 
 
-    public LargeExpenseRequest(LocalDate date, String category, String type, double amount, String description) {
+    public LargeExpenseRequest(LocalDate date, double amount, String description) {
         this.id = 1000 + RANDOM.nextInt(9000);
         this.date = date;
-        this.category = category;
-        this.type = type;
         this.amount = amount;
         this.description = description;
         this.status = "Pending";
@@ -31,8 +27,6 @@ public class LargeExpenseRequest implements Serializable {
     public boolean updateRequest(LocalDate date, String category, String type, double amount, String description) {
         try {
             this.date = date;
-            this.category = category;
-            this.type = type;
             this.amount = amount;
             this.description = description;
 
@@ -50,13 +44,6 @@ public class LargeExpenseRequest implements Serializable {
         return date;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public String getType() {
-        return type;
-    }
 
     public double getAmount() {
         return amount;

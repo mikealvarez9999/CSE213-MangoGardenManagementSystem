@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.SalaryHistoryController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="SALARY DISBURSEMENT HISTORY">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="This table lists all previously executed payroll disbursements." wrapText="true" />
+
+        <TableView fx:id="salaryTable" layoutX="20.0" layoutY="80.0" prefHeight="480.0" prefWidth="660.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="70.0" text="Record ID" />
+                <TableColumn fx:id="employeeIdColumn" prefWidth="120.0" text="Employee ID" />
+                <TableColumn fx:id="startDateColumn" prefWidth="120.0" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" prefWidth="120.0" text="End Date" />
+                <TableColumn fx:id="netWagesColumn" prefWidth="150.0" text="Net Wages ($)" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

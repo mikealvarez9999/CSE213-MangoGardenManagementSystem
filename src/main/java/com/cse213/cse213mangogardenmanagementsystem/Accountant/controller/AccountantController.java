@@ -48,9 +48,14 @@ public class AccountantController {
         loadFXMLView("UpdateTransactionView.fxml");
     }
 
+//    @FXML
+//    private void loadGenerateFinancialStatementView() {
+//        loadFXMLView("GenerateFinancialStatementView.fxml"); // Using the singular name
+//    }
+
     @FXML
-    private void loadGenerateFinancialStatementView() {
-        loadFXMLView("GenerateFinancialStatementView.fxml"); // Using the singular name
+    private void loadSalaryHistoryView() {
+        loadFXMLView("SalaryHistoryView.fxml"); // Using the singular name
     }
 
     @FXML

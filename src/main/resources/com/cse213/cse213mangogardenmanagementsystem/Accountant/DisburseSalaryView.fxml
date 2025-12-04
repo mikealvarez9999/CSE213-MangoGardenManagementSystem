@@ -8,32 +8,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.DisburseSalaryController">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Accountant.controller.DisburseSalaryController">
     <children>
         <Label layoutX="20.0" layoutY="20.0" text="PAYROLL DISBURSEMENT">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
+            <font><Font name="System Bold" size="20.0" /></font>
         </Label>
         <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Select a payroll period and execute payment for selected workers." wrapText="true" />
 
         <Label layoutX="20.0" layoutY="85.0" text="Payroll Period:" />
         <ComboBox fx:id="cmbPayrollPeriod" layoutX="120.0" layoutY="80.0" prefWidth="180.0" promptText="Select Period" />
-        <Button layoutX="310.0" layoutY="80.0" text="Load Payroll" onAction="#handleLoadPayroll" />
+        <Button layoutX="310.0" layoutY="80.0" onAction="#handleLoadPayroll" text="Load Payroll" />
 
         <TableView fx:id="payrollTable" layoutX="20.0" layoutY="120.0" prefHeight="380.0" prefWidth="660.0">
             <columns>
-                <TableColumn prefWidth="50.0" text="Select" />
-                <TableColumn prefWidth="150.0" text="Worker Name" />
-                <TableColumn prefWidth="100.0" text="Net Pay" />
-                <TableColumn prefWidth="150.0" text="Status" />
+
+                <TableColumn fx:id="workerNameColumn" prefWidth="150.0" text="Worker Name" />
+                <TableColumn fx:id="netPayColumn" prefWidth="100.0" text="Net Pay" />
             </columns>
+            <!-- OPTIONAL: You may uncomment the line below to use the table's default MULTIPLE selection model
+            which lets users select multiple rows by Ctrl/Shift+Click, but checkboxes are preferred for action selection. -->
+            <!-- <selectionModel><TableView fx:constant="DEFAULT_SELECTION_MODEL" selection-mode="MULTIPLE" /></selectionModel> -->
         </TableView>
 
         <Label layoutX="20.0" layoutY="520.0" text="Payment Options" />
         <ComboBox fx:id="cmbPaymentMethod" layoutX="20.0" layoutY="545.0" prefWidth="180.0" promptText="Payment Method" />
         <Label fx:id="lblBalanceCheck" layoutX="210.0" layoutY="550.0" text="Balance Check: Not Run" />
 
-        <Button layoutX="540.0" layoutY="545.0" text="Execute Payment" onAction="#handleExecutePayment" />
+        <Button layoutX="540.0" layoutY="545.0" onAction="#handleExecutePayment" text="Execute Payment" />
     </children>
 </AnchorPane>

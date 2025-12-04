@@ -70,13 +70,16 @@ public class Accountant {
         return newRequest;
     }
 
-    public static LargeExpenseRequest submitLargeExpenseRequest(LocalDate date, String category, String type, double amount, String description) {
-        LargeExpenseRequest newRequest = new LargeExpenseRequest(date, category, type, amount, description);
+    public static LargeExpenseRequest submitLargeExpenseRequest(LocalDate date,  double amount, String description) {
+        LargeExpenseRequest newRequest = new LargeExpenseRequest(date, amount, description);
         LARGE_EXPENSE_RECORDS.add(newRequest);
         FileReadWrite.saveData(LARGE_EXPENSE_RECORDS, LARGE_EXPENSE_FILE_NAME);
         return newRequest;
     }
 
+    public static ObservableList<ToolRequest> getAllToolRequests() {
+        return TOOL_RECORDS;
+    }
 
     public static boolean approveToolRequest(int requestId) {
 
@@ -99,6 +102,10 @@ public class Accountant {
             return true;
         }
         return false;
+    }
+
+    public static ObservableList<VehicleMaintRequest> getAllVehicleMaintRequest() {
+        return MAINT_RECORDS;
     }
 
     public static boolean approveVehicleMaintRequest(int requestId) {
