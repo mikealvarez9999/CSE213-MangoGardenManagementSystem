@@ -11,6 +11,7 @@ public class BudgetRequest implements Serializable {
     private String category;
     private double amount;
     private String purpose;
+    private String status;
 
 
     public BudgetRequest(String category, double amount, String purpose) {
@@ -18,6 +19,8 @@ public class BudgetRequest implements Serializable {
         this.category = category;
         this.amount = amount;
         this.purpose = purpose;
+        this.status = "Pending";
+
     }
 
     public boolean updateRequest(String category, double amount, String purpose) {
@@ -46,6 +49,19 @@ public class BudgetRequest implements Serializable {
 
     public String getPurpose() {
         return purpose;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public boolean setStatus(String status) {
+        try {
+            this.status = status;
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

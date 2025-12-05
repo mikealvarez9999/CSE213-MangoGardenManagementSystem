@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DisburseSalaryController
 {
@@ -17,36 +18,66 @@ public class DisburseSalaryController
     @FXML private TableView<Payroll> payrollTable;
     @FXML private ComboBox<String> cmbPaymentMethod;
 
+    // FXML Columns that must be injected for binding. These must match fx:ids in the FXML.
+    @FXML private TableColumn<Payroll, Boolean> selectColumn;
     @FXML private TableColumn<Payroll, String> workerNameColumn;
     @FXML private TableColumn<Payroll, Double> netPayColumn;
+    @FXML private TableColumn<Payroll, String> statusColumn;
 
-    // Mock Data List (Simulated Payroll Data for display)
-    private final ObservableList<Payroll> pendingPayroll = FXCollections.observableArrayList(
+    // NEW: Assuming the FXML has these date columns (e.g., named colStartDate/colEndDate)
+    @FXML private TableColumn<Payroll, LocalDate> colStartDate;
+    @FXML private TableColumn<Payroll, LocalDate> colEndDate;
+
+    // FIX 1: Single Master list containing all mock payroll data
+    private static final ObservableList<Payroll> UNPAID_PAYROLL_RECORDS = FXCollections.observableArrayList(
+            // November Data
             new Payroll(LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 30), "W101", 1500.00),
-            new Payroll(LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 30), "W102", 1450.00)
+            new Payroll(LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 30), "W102", 1450.00),
+            // October Data
+            new Payroll(LocalDate.of(2025, 10, 1), LocalDate.of(2025, 10, 31), "W101", 1480.00),
+            new Payroll(LocalDate.of(2025, 10, 1), LocalDate.of(2025, 10, 31), "W103", 1600.00)
     );
 
     @FXML
     public void initialize() {
-        // --- FIX: Setup column value factories directly on injected columns ---
+        // --- Setup column value factories and date formatting ---
 
-        // The strings must EXACTLY match the getter methods in the Payroll Model:
+        final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        // 0. Select Column (Assuming boolean tracking for selection)
-        // Note: For simplicity, we are binding to a hypothetical "selected" property.
-        // selectColumn.setCellValueFactory(new PropertyValueFactory<>("selected"));
-
-        // 1. Worker Name Column -> Binds to Payroll's getEmployeeID()
         if (workerNameColumn != null) {
             workerNameColumn.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
         }
 
-        // 2. Net Pay Column -> Binds to Payroll's getNetWages()
         if (netPayColumn != null) {
             netPayColumn.setCellValueFactory(new PropertyValueFactory<>("netWages"));
         }
 
+        if (statusColumn != null) {
+            statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        }
 
+        // Date column bindings with custom formatter (required for LocalDate visibility)
+        if (colStartDate != null) {
+            colStartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+            colStartDate.setCellFactory(column -> new TableCell<Payroll, LocalDate>() {
+                @Override
+                protected void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+                    setText(empty || item == null ? null : dateFormatter.format(item));
+                }
+            });
+        }
+
+        if (colEndDate != null) {
+            colEndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+            colEndDate.setCellFactory(column -> new TableCell<Payroll, LocalDate>() {
+                @Override
+                protected void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+                    setText(empty || item == null ? null : dateFormatter.format(item));
+                }
+            });
+        }
 
         cmbPayrollPeriod.getItems().addAll("November 2025", "October 2025");
         cmbPaymentMethod.getItems().addAll("Bank Transfer", "Mobile Wallet", "Cash");
@@ -54,14 +85,40 @@ public class DisburseSalaryController
 
     @FXML
     public void handleLoadPayroll(ActionEvent actionEvent) {
-        if (cmbPayrollPeriod.getValue() == null) {
+        String selectedPeriod = cmbPayrollPeriod.getValue();
+        if (selectedPeriod == null) {
             System.err.println("Please select a payroll period.");
             return;
         }
 
-        // Load mock data into the table
-        payrollTable.setItems(pendingPayroll);
-        lblBalanceCheck.setText("Balance Check: Total Payout: $2950.00 (Sufficient){mock data}");
+        ObservableList<Payroll> filteredData = FXCollections.observableArrayList();
+        double totalPayout = 0.0;
+
+        // Determine start and end dates based on selected period
+        LocalDate filterStart = null;
+        LocalDate filterEnd = null;
+
+        if (selectedPeriod.equals("November 2025")) {
+            filterStart = LocalDate.of(2025, 11, 1);
+            filterEnd = LocalDate.of(2025, 11, 30);
+        } else if (selectedPeriod.equals("October 2025")) {
+            filterStart = LocalDate.of(2025, 10, 1);
+            filterEnd = LocalDate.of(2025, 10, 31);
+        }
+
+        // FIX 2: Loop through the master list and filter data based on the period
+        if (filterStart != null) {
+            for (Payroll record : UNPAID_PAYROLL_RECORDS) {
+                // Payroll record must match the start and end dates exactly
+                if (record.getStartDate().equals(filterStart) && record.getEndDate().equals(filterEnd)) {
+                    filteredData.add(record);
+                    totalPayout += record.getNetWages();
+                }
+            }
+        }
+
+        payrollTable.setItems(filteredData);
+        lblBalanceCheck.setText("Balance Check: Total Payout: $" + String.format("%.2f", totalPayout) + " (Sufficient){mock data}");
     }
 
     @FXML
