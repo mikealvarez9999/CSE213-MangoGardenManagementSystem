@@ -46,9 +46,9 @@ public class GeneralManager {
         }
     }
 
-    public static ObservableList<BudgetRequest> loadBudgetRequests(){
-        ObservableList<BudgetRequest> budgetRequestObservableList = FXCollections.observableArrayList();
-        budgetRequestObservableList = FileReadWrite.loadData(BudgetRequest.class, BUDGET_REQUESTS_FILE);
-        return budgetRequestObservableList;
-    }
+//    public static ObservableList<BudgetRequest> loadBudgetRequests(){
+//        ObservableList<BudgetRequest> budgetRequestObservableList = FXCollections.observableArrayList();
+//        budgetRequestObservableList = FileReadWrite.loadData(BudgetRequest.class, BUDGET_REQUESTS_FILE);
+//        return budgetRequestObservableList;
+//    }
 }

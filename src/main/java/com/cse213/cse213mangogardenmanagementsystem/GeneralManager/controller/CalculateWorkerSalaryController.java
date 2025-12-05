@@ -45,7 +45,7 @@ public class CalculateWorkerSalaryController {
     @javafx.fxml.FXML
     public void calculateButtonOA(ActionEvent actionEvent) {
         double dailyRate = foundWorker.getSalaryRate();
-        double netPay = (Double.parseDouble(presentDaysTF.getText()) * dailyRate) + (Double.parseDouble(grossPayTF.getText()) - (Double.parseDouble(taxTF.getText()) * Double.parseDouble(grossPayTF.getText())) - Double.parseDouble(advancesTF.getText()))
+        double netPay = (Double.parseDouble(presentDaysTF.getText()) * dailyRate) + (Double.parseDouble(grossPayTF.getText()) - (Double.parseDouble(taxTF.getText()) * Double.parseDouble(grossPayTF.getText())) - Double.parseDouble(advancesTF.getText()));
     }
 
     @javafx.fxml.FXML
