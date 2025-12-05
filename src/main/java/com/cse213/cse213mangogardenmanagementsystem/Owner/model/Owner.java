@@ -60,4 +60,44 @@ public class Owner {
         largeExpenseRequests = FileReadWrite.loadData(LargeExpenseRequest.class, LARGE_EXPENSES_FILE);
         return largeExpenseRequests;
     }
+
+    public static boolean approveRejectLargeExpenseRequest(LargeExpenseRequest updatedRequest){
+        try {
+            ObservableList<LargeExpenseRequest> largeExpenseRequests = loadAllLargeExpenseRequests();
+            for (int i = 0; i < largeExpenseRequests.size(); i++){
+                LargeExpenseRequest currentRequest = largeExpenseRequests.get(i);
+                if (currentRequest.getId() == updatedRequest.getId()){
+                    largeExpenseRequests.set(i, updatedRequest);
+                    FileReadWrite.saveData(largeExpenseRequests, LARGE_EXPENSES_FILE);
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static ObservableList<SpecialOrder> loadAllSpecialOrders(){
+        ObservableList<SpecialOrder> specialOrders = FXCollections.observableArrayList();
+        specialOrders = FileReadWrite.loadData(SpecialOrder.class, SPECIAL_ORDERS_FILE);
+        return specialOrders;
+    }
+
+    public static boolean approveRejectSpecialOrder(SpecialOrder updatedOrder){
+        try {
+            ObservableList<SpecialOrder> specialOrders = loadAllSpecialOrders();
+            for (int i = 0; i < specialOrders.size(); i++){
+                SpecialOrder currentOrder = specialOrders.get(i);
+                if (currentOrder.getOrderID() == updatedOrder.getOrderID()){
+                    specialOrders.set(i, updatedOrder);
+                    FileReadWrite.saveData(specialOrders, SPECIAL_ORDERS_FILE);
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

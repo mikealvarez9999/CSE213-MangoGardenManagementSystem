@@ -28,7 +28,7 @@ public class ApproveLargeExpensesController {
 
     @javafx.fxml.FXML
     public void initialize(){
-        actionCB.getItems().addAll("Approve", "Reject");
+        actionCB.getItems().addAll("Approved", "Rejected");
         amountTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, Double>("amount"));
         dateTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, LocalDate>("date"));
         reasonTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, String>("description"));
@@ -40,5 +40,22 @@ public class ApproveLargeExpensesController {
 
     @javafx.fxml.FXML
     public void applyButtonOA(ActionEvent actionEvent) {
+        LargeExpenseRequest selectedRequest = largeExpensesTV.getSelectionModel().getSelectedItem();
+        if ((selectedRequest != null) && (actionCB.getValue() != null)){
+            selectedRequest.setStatus(actionCB.getValue());
+            if (Owner.approveRejectLargeExpenseRequest(selectedRequest)){
+                successLabel.setText(null);
+                successLabel.setStyle("-fx-text-fill: #51AB19;");
+                successLabel.setText("Request #" + selectedRequest.getId() + " has been " + actionCB.getValue() + " successfully");
+            } else {
+                successLabel.setText(null);
+                successLabel.setStyle("-fx-text-fill: #FF0000;");
+                successLabel.setText("There has been an error.");
+            }
+        } else {
+            successLabel.setText(null);
+            successLabel.setStyle("-fx-text-fill: #FF0000;");
+            successLabel.setText("Select a request and an action.");
+        }
     }
 }
