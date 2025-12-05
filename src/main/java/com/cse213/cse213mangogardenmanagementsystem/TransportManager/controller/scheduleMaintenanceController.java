@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 
@@ -39,12 +40,13 @@ public class scheduleMaintenanceController {
 
         vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
 
-        vehicleIDColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getVehicleID()));
-        typeColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getVehicleType()));
-        availabilityColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getAvailability()));
-        capacityColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getCapacity()));
-        MaintenanceDateColumn.setCellValueFactory(data -> {
-            LocalDate date = data.getValue().getMaintenanceDate();
+        vehicleIDColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleID"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
+        capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+
+        MaintenanceDateColumn.setCellValueFactory(v -> {
+            LocalDate date = v.getValue().getMaintenanceDate();
             return new javafx.beans.property.SimpleStringProperty(date == null ? "Not Set" : date.toString());
         });
 

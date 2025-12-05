@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class requestVehicleServicingBudgetController {
 
@@ -26,21 +27,24 @@ public class requestVehicleServicingBudgetController {
 
     @FXML
     public void initialize() {
+
+        vehicleIdColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleID"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+
+        MaintenanceDateColumn.setCellValueFactory(v ->
+                new javafx.beans.property.SimpleStringProperty(
+                        v.getValue().getMaintenanceDate() == null ?
+                                "Not Set" :
+                                v.getValue().getMaintenanceDate().toString()
+                )
+        );
+
+        // Load vehicle list
         vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
-
-        vehicleIdColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleStringProperty(v.getValue().getVehicleID()));
-        typeColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleStringProperty(v.getValue().getVehicleType()));
-        capacityColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleDoubleProperty(v.getValue().getCapacity()));
-        MaintenanceDateColumn.setCellValueFactory(v -> {
-            if (v.getValue().getMaintenanceDate() == null) {
-                return new javafx.beans.property.SimpleStringProperty("Not Set");
-            } else {
-                return new javafx.beans.property.SimpleStringProperty(v.getValue().getMaintenanceDate().toString());
-            }
-        });
-
         serviceBudgetTableView.setItems(vehicleData);
 
+        // Fill ComboBox
         for (Vehicles v : vehicleData) {
             vehicleIdComboBox.getItems().add(v.getVehicleID());
         }
@@ -58,7 +62,7 @@ public class requestVehicleServicingBudgetController {
 
         try {
             double cost = Double.parseDouble(costText);
-            notelabel.setText("Request submitted for Vehicle " + selectedVehicleID + " with budget: $" + cost);
+            notelabel.setText("Request submitted for Vehicle ");
             costTextField.clear();
             vehicleIdComboBox.setValue(null);
         } catch (NumberFormatException e) {

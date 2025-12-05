@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class assignDriversController {
 
@@ -21,7 +22,7 @@ public class assignDriversController {
     @FXML private TableView<Vehicles> vehicledetailsTableView;
     @FXML private TableColumn<Vehicles, String> VehicleIdColumn;
     @FXML private TableColumn<Vehicles, String> typeColumn;
-    @FXML private TableColumn<Vehicles, Number> capacityColumn;
+    @FXML private TableColumn<Vehicles, Double> capacityColumn;
     @FXML private TableColumn<Vehicles, String> availabilityColumn;
 
     @FXML private ComboBox<String> selectedDriverIdComboBox;
@@ -35,22 +36,24 @@ public class assignDriversController {
     @FXML
     public void initialize() {
 
+        driverIdColumn.setCellValueFactory(new PropertyValueFactory<>("driverID"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("driverName"));
+        licenseTypeColumn.setCellValueFactory(new PropertyValueFactory<>("licenseType"));
+        availabilityforDriverColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
+
         driverData = FXCollections.observableArrayList(manager.getDriverList());
-        driverIdColumn.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getDriverID()));
-        nameColumn.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getDriverName()));
-        licenseTypeColumn.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getLicenseType()));
-        availabilityforDriverColumn.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getAvailability()));
         driverDetailsTableView.setItems(driverData);
 
         for (Drivers d : driverData) {
             selectedDriverIdComboBox.getItems().add(d.getDriverID());
         }
 
+        VehicleIdColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleID"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+        availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
+
         vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
-        VehicleIdColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleStringProperty(v.getValue().getVehicleID()));
-        typeColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleStringProperty(v.getValue().getVehicleType()));
-        capacityColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleDoubleProperty(v.getValue().getCapacity()));
-        availabilityColumn.setCellValueFactory(v -> new javafx.beans.property.SimpleStringProperty(v.getValue().getAvailability()));
         vehicledetailsTableView.setItems(vehicleData);
 
         for (Vehicles v : vehicleData) {
@@ -60,17 +63,16 @@ public class assignDriversController {
 
     @FXML
     public void assignDriverOnMouseClick(ActionEvent event) {
+
         String driverID = selectedDriverIdComboBox.getValue();
         String vehicleID = selectedVehicleIdComboBox.getValue();
 
         if (driverID == null || vehicleID == null) {
-            showAlert("Error", "Please select both Driver and Vehicle!");
             return;
         }
 
         manager.assignDriverToVehicle(driverID, vehicleID);
 
-        // Update local table data
         for (Drivers d : driverData) {
             if (d.getDriverID().equals(driverID)) {
                 d.setAvailability("Unavailable");
@@ -87,18 +89,7 @@ public class assignDriversController {
 
         driverDetailsTableView.refresh();
         vehicledetailsTableView.refresh();
-
         selectedDriverIdComboBox.setValue(null);
         selectedVehicleIdComboBox.setValue(null);
-
-        showAlert("Success", "Driver assigned to Vehicle successfully!");
-    }
-
-    private void showAlert(String title, String msg) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(msg);
-        alert.showAndWait();
     }
 }
