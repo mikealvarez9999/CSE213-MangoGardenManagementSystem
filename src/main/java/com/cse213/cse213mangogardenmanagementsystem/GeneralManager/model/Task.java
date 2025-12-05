@@ -61,4 +61,15 @@ public class Task implements Serializable {
         this.assignedOn = assignedOn;
         this.expectedCompletion = expectedCompletion;
     }
+
+    @Override
+    public String toString() {
+        return "Task ID: " + taskID + "\n" +
+                "  Status: " + status + "\n" +
+                "  Assigned To: " + assignedTo + "\n" +
+                "  Assigned On: " + assignedOn + "\n" +
+                "  Expected Completion: " + expectedCompletion + "\n" +
+                "  Details: " + details + "\n" +
+                "------------------------------------------";
+    }
 }

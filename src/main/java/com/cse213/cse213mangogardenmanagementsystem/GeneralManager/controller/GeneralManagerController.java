@@ -73,7 +73,7 @@ public class GeneralManagerController {
 
     @FXML
     public void loadGenerateWeeklyTaskSummaryView(ActionEvent actionEvent) {
-        loadFXMLView("GenerateWeeklyReportView.fxml");
+        loadFXMLView("GenerateTaskReportView.fxml");
     }
 
     @FXML
