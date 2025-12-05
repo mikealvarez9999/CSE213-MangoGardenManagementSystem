@@ -18,13 +18,11 @@
         <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="Select the week and click Generate." wrapText="true" />
 
         <Label layoutX="20.0" layoutY="85.0" text="Report Parameters" />
-        <ComboBox fx:id="cmbStatementType" layoutX="20.0" layoutY="110.0" prefWidth="250.0" promptText="Select Week" />
+        <ComboBox fx:id="weekCB" layoutX="20.0" layoutY="110.0" prefWidth="250.0" promptText="Select Week" />
 
-        <Button layoutX="296.0" layoutY="110.0" onAction="#handleGeneratePreview" text="Generate Preview" />
+        <Button layoutX="296.0" layoutY="110.0" onAction="#generateButtonOA" text="Generate Weekly Report" />
 
         <Label layoutX="20.0" layoutY="160.0" text="Weekly report:" />
-        <TextArea fx:id="txtPreview" editable="false" layoutX="20.0" layoutY="185.0" prefHeight="350.0" prefWidth="660.0" />
-
-        <Button disable="true" layoutX="540.0" layoutY="550.0" onAction="#handleExportStatement" text="Export to PDF/Excel" />
+        <TextArea fx:id="reportTA" editable="false" layoutX="20.0" layoutY="185.0" prefHeight="389.0" prefWidth="660.0" />
     </children>
 </AnchorPane>

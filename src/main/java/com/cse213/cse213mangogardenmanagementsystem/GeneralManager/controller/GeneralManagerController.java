@@ -82,8 +82,8 @@ public class GeneralManagerController {
     }
 
     @FXML
-    public void loadGenerateWorkerPayrollView(ActionEvent actionEvent) {
-        loadFXMLView("GenerateWorkerPayrollView.fxml");
+    public void loadCalculateWorkerSalaryView(ActionEvent actionEvent) {
+        loadFXMLView("CalculateWorkerSalaryView.fxml");
     }
 
     @FXML

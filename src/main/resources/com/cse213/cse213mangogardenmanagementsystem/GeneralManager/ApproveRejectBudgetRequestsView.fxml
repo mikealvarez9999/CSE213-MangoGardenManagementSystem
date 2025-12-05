@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,14 +19,13 @@
       <TableView fx:id="budgetRequestsTV" layoutX="101.0" layoutY="89.0" prefHeight="250.0" prefWidth="478.0">
         <columns>
           <TableColumn fx:id="requestIDTC" prefWidth="75.0" text="Request ID" />
-          <TableColumn fx:id="requestedByTC" prefWidth="99.0" text="Requested By" />
+          <TableColumn fx:id="categoryTC" prefWidth="99.0" text="Category" />
             <TableColumn fx:id="amountTC" prefWidth="82.0" text="Amount" />
             <TableColumn fx:id="purposeTC" prefWidth="128.0" text="Purpose" />
             <TableColumn fx:id="statusTC" prefWidth="93.0" text="Status" />
         </columns>
       </TableView>
-      <Label layoutX="131.0" layoutY="366.0" text="Enter Request ID:" />
-      <TextField fx:id="enterIDTF" layoutX="236.0" layoutY="362.0" />
+      <Label layoutX="143.0" layoutY="363.0" text="Select a budget request from the table." />
       <Label layoutX="142.0" layoutY="400.0" text="Choose Action:" />
       <ComboBox fx:id="actionCB" layoutX="236.0" layoutY="396.0" prefWidth="150.0" />
       <Button layoutX="447.0" layoutY="377.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Action">

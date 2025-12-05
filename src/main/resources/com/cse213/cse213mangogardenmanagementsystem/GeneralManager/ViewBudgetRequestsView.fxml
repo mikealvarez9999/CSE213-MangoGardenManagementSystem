@@ -17,8 +17,8 @@
       <TableView fx:id="budgetRequestsTV" layoutX="20.0" layoutY="80.0" prefHeight="285.0" prefWidth="635.0">
         <columns>
           <TableColumn fx:id="requestIDTC" prefWidth="75.0" text="Request ID" />
-          <TableColumn fx:id="requestedByTC" prefWidth="155.0" text="Requested By" />
-            <TableColumn fx:id="amountTC" text="Amount" />
+          <TableColumn fx:id="categoryTC" prefWidth="132.0" text="Category" />
+            <TableColumn fx:id="amountTC" prefWidth="103.0" text="Amount" />
             <TableColumn fx:id="purposeTC" prefWidth="220.0" text="Purpose" />
             <TableColumn fx:id="statusTC" prefWidth="104.0" text="Status" />
         </columns>
