@@ -49,6 +49,9 @@ public class Task implements Serializable {
         return expectedCompletion;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Task(String details, String status, String assignedTo, LocalDate assignedOn, LocalDate expectedCompletion) {
         this.taskID = 100 + RANDOM.nextInt(900);
