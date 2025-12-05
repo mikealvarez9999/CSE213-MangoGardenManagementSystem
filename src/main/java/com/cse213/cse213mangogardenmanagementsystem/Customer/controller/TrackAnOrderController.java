@@ -1,52 +1,90 @@
 package com.cse213.cse213mangogardenmanagementsystem.Customer.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.Customer.model.Customer;
-import com.cse213.cse213mangogardenmanagementsystem.Customer.model.Order;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TrackAnOrderController {
-    @javafx.fxml.FXML
-    private TableView<Order> trackOrderTableView;
-    @javafx.fxml.FXML
-    private TableColumn<Order,String> locationColumn;
-    @javafx.fxml.FXML
-    private TextArea orderDataTextArea;
-    @javafx.fxml.FXML
-    private TableColumn<Order,String> statusColumn;
-    @javafx.fxml.FXML
-    private Button trackOrderButton;
-    @javafx.fxml.FXML
-    private TableColumn<Order,String> deliveryProgressColumn;
-    @javafx.fxml.FXML
-    private Label trackAnOrderLabel;
-    @javafx.fxml.FXML
+
+    @FXML
     private ComboBox<String> orderIDComboBox;
+    @FXML
+    private Button trackOrderButton;
+    @FXML
+    private TextArea orderDataTextArea;
 
+    @FXML
+    private TableView<OrderTrackDemo> trackOrderTableView;
+    @FXML
+    private TableColumn<OrderTrackDemo, String> statusColumn;
+    @FXML
+    private TableColumn<OrderTrackDemo, String> locationColumn;
+    @FXML
+    private TableColumn<OrderTrackDemo, String> deliveryProgressColumn;
 
-    @javafx.fxml.FXML
-    public void initialize(){
+    @FXML
+    private Label trackAnOrderLabel;
 
-        statusColumn.setCellValueFactory(new PropertyValueFactory<Order,String>("status"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<Order,String>("location"));
-        deliveryProgressColumn.setCellValueFactory(new PropertyValueFactory<Order,String>("deliveryProgress"));
+    private ObservableList<OrderTrackDemo> orderTrackingList = FXCollections.observableArrayList();
 
-        trackOrderTableView.getItems().addAll();
+    @FXML
+    public void initialize() {
 
+        // ComboBox demo IDs
+        orderIDComboBox.getItems().addAll("ORD001", "ORD002", "ORD003");
+
+        // Map columns
+        statusColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("status"));
+        locationColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("location"));
+        deliveryProgressColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("deliveryProgress"));
+
+        // Demo tracking data
+        orderTrackingList.addAll(
+                new OrderTrackDemo("Shipped", "Dhaka Warehouse", "40%"),
+                new OrderTrackDemo("Out for Delivery", "Uttara Sector-10", "90%"),
+                new OrderTrackDemo("Delivered", "Customer Address", "100%")
+        );
+
+        trackOrderTableView.setItems(orderTrackingList);
     }
 
-    @javafx.fxml.FXML
-    public void trackOrderButtonOnAction(ActionEvent actionEvent){
-        if ((orderIDComboBox.getValue() == null) || (orderDataTextArea.getText().isEmpty())){
-            Alert aa = new Alert(Alert.AlertType.ERROR);
-            aa.setContentText("Invalid input!");
-            aa.showAndWait();
+    @FXML
+    public void trackOrderButtonOnAction(ActionEvent event) {
+
+        String selectedOrderID = orderIDComboBox.getValue();
+
+        if (selectedOrderID == null) {
+            orderDataTextArea.setText("Please select an Order ID.");
             return;
         }
 
+        // Demo order details (you can later attach your real data here)
+        orderDataTextArea.setText(
+                "Order ID: " + selectedOrderID + "\n" +
+                        "Product: Mango Box\n" +
+                        "Quantity: 5 crates\n" +
+                        "Estimated Delivery: 2 days"
+        );
 
+        // Table already shows demo progress, you can link real-time updates later
+    }
+
+    // Inner demo class
+    public static class OrderTrackDemo {
+        private String status;
+        private String location;
+        private String deliveryProgress;
+
+        public OrderTrackDemo(String status, String location, String deliveryProgress) {
+            this.status = status;
+            this.location = location;
+            this.deliveryProgress = deliveryProgress;
+        }
+
+        public String getStatus() { return status; }
+        public String getLocation() { return location; }
+        public String getDeliveryProgress() { return deliveryProgress; }
     }
 }
