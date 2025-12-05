@@ -17,8 +17,7 @@ public class DisburseSalaryController
     @FXML private TableView<Payroll> payrollTable;
     @FXML private ComboBox<String> cmbPaymentMethod;
 
-    // FXML Columns that must be injected for binding. These must match fx:ids in the FXML.
-    @FXML private TableColumn<Payroll, String> workerNameColumn; // Placeholder fx:id
+    @FXML private TableColumn<Payroll, String> workerNameColumn;
     @FXML private TableColumn<Payroll, Double> netPayColumn;
 
     // Mock Data List (Simulated Payroll Data for display)
@@ -29,20 +28,23 @@ public class DisburseSalaryController
 
     @FXML
     public void initialize() {
-        // --- Setup column value factories to bind to Payroll Model getters ---
+        // --- FIX: Setup column value factories directly on injected columns ---
 
-        // FXML columns structure (by index): 0: Select, 1: Worker Name, 2: Net Pay, 3: Status
+        // The strings must EXACTLY match the getter methods in the Payroll Model:
 
-        // 1. Worker Name Column (Index 1) -> Binds to Payroll's getEmployeeID()
-        @SuppressWarnings("unchecked")
-        TableColumn<Payroll, String> workerCol = (TableColumn<Payroll, String>) payrollTable.getColumns().get(1);
-        workerCol.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
+        // 0. Select Column (Assuming boolean tracking for selection)
+        // Note: For simplicity, we are binding to a hypothetical "selected" property.
+        // selectColumn.setCellValueFactory(new PropertyValueFactory<>("selected"));
 
-        // 2. Net Pay Column (Index 2) -> Binds to Payroll's getNetWages()
-        @SuppressWarnings("unchecked")
-        TableColumn<Payroll, Double> wagesCol = (TableColumn<Payroll, Double>) payrollTable.getColumns().get(2);
-        wagesCol.setCellValueFactory(new PropertyValueFactory<>("netWages"));
+        // 1. Worker Name Column -> Binds to Payroll's getEmployeeID()
+        if (workerNameColumn != null) {
+            workerNameColumn.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
+        }
 
+        // 2. Net Pay Column -> Binds to Payroll's getNetWages()
+        if (netPayColumn != null) {
+            netPayColumn.setCellValueFactory(new PropertyValueFactory<>("netWages"));
+        }
 
 
 
@@ -59,7 +61,7 @@ public class DisburseSalaryController
 
         // Load mock data into the table
         payrollTable.setItems(pendingPayroll);
-        lblBalanceCheck.setText("Balance Check: Total Payout: $2950.00 (Sufficient)");
+        lblBalanceCheck.setText("Balance Check: Total Payout: $2950.00 (Sufficient){mock data}");
     }
 
     @FXML
@@ -85,8 +87,6 @@ public class DisburseSalaryController
         }
 
         // --- EXECUTE PAYMENT FOR THE WHOLE LOADED TABLE ---
-        int processedCount = 0;
-
         // Confirmation before executing
         Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmAlert.setTitle("Confirm Disbursement");

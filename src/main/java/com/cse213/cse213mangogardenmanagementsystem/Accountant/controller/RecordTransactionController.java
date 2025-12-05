@@ -29,13 +29,14 @@ public class RecordTransactionController
             String type = cmbType.getValue();
             String category = cmbCategory.getValue();
             LocalDate date = dateDate.getValue();
+            String description = txtDescription.getText();
 
             if (type == null || category == null || date == null || amount <= 0) {
                 System.err.println("Validation Error: Please select Type, Category, Date, and enter a positive Amount.");
                 return;
             }
 
-            Transaction newTransaction = Accountant.recordTransaction(amount, type, category, date);
+            Transaction newTransaction = Accountant.recordTransaction(amount, type, category, date, description);
 
             System.out.println("Controller: Transaction recorded successfully. ID: " + newTransaction.getId());
 

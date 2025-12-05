@@ -2,14 +2,9 @@ package com.cse213.cse213mangogardenmanagementsystem.Accountant.model;
 
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.ObservableList;
-
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Random;
 
 public class Accountant {
-
-//    private static final Random RANDOM = new Random();
 
     private static final String TRANSACTION_FILE_NAME = "transactions.bin";
     private static ObservableList<Transaction> TRANSACTION_RECORDS = FileReadWrite.loadData(Transaction.class, TRANSACTION_FILE_NAME);
@@ -30,16 +25,16 @@ public class Accountant {
     private static ObservableList<VehicleMaintRequest> MAINT_RECORDS = FileReadWrite.loadData(VehicleMaintRequest.class, MAINT_REQUEST_FILE_NAME);
 
 
-    public static Transaction recordTransaction(double amount, String type, String category, LocalDate date) {
-        Transaction newTransaction = new Transaction(amount, type, category, date);
+    public static Transaction recordTransaction(double amount, String type, String category, LocalDate date, String description) {
+        Transaction newTransaction = new Transaction(amount, type, category, date, description);
         TRANSACTION_RECORDS.add(newTransaction);
         FileReadWrite.saveData(TRANSACTION_RECORDS, TRANSACTION_FILE_NAME);
         System.out.println("Transaction recorded by Accountant Model. ID: " + newTransaction.getId());
         return newTransaction;
     }
 
-    public static boolean updateTransaction(Transaction transaction, double amount, String type, String category, LocalDate date) {
-        if (transaction.updateTransaction(amount, type, category, date)) {
+    public static boolean updateTransaction(Transaction transaction, double amount, String type, String category, LocalDate date, String description) {
+        if (transaction.updateTransaction(amount, type, category, date, description)) {
             FileReadWrite.saveData(TRANSACTION_RECORDS, TRANSACTION_FILE_NAME);
             return true;
         }
