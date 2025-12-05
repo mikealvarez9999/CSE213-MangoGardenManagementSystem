@@ -42,6 +42,10 @@ public class Order implements Serializable{
         return status; 
     }
 
+    public void setStatus(String newStatus) {
+        this.status = newStatus;
+    }
+
     public Order(String type, int quantity, String phoneNum) {
         this.orderID = 100 + RANDOM.nextInt(900);
         this.type = type;
