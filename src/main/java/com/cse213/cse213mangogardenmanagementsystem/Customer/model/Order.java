@@ -2,8 +2,9 @@ package com.cse213.cse213mangogardenmanagementsystem.Customer.model;
 
 import java.time.LocalDate;
 import java.util.Random;
+import java.io.Serializable;
 
-public class Order {
+public class Order implements Serializable{
     private static final Random RANDOM = new Random();
 
     protected int orderID;
