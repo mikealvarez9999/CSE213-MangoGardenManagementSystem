@@ -31,7 +31,6 @@ public class mangoInventoryController {
         batchList = WarehouseManager.getMangoBatch();
         inventoryList = WarehouseManager.getMangoInventory();
 
-        // CONVERT BATCHES → INVENTORY ROWS (IF NOT ALREADY PRESENT)
         for (MangoBatch b : batchList) {
             boolean exists = false;
             for (MangoInventory inv : inventoryList) {
@@ -47,14 +46,13 @@ public class mangoInventoryController {
             }
         }
 
-        // Show all batch IDs in ComboBox
+
         for (MangoBatch b : batchList) {
             batchIDComboBox.getItems().add(b.getBatchId());
         }
 
         mangoInventoryTableView.setItems(inventoryList);
 
-        // Column setup
         batchIdColumn.setCellValueFactory(c ->
                 new javafx.beans.property.SimpleStringProperty(c.getValue().getBatchId()));
 

@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class RecordBatchController {
 
@@ -52,16 +51,12 @@ public class RecordBatchController {
 
         MangoBatch batch = new MangoBatch(batchId, mangoType, date, fieldNo);
 
-        // Add to ArrayList in Controller
         batchList.add(batch);
 
-        // Save updated list to text file
         WarehouseManager.recordBatch(batchList);
-//        FileReadWrite.saveData(batchList, FILE_NAME);
 
         confirmMessageTextArea.setText("Batch recorded successfully!");
 
-        // Clear input fields
         batchIdTextField.clear();
         fieldNumberTextField.clear();
         harvestDateDatePicker.setValue(null);

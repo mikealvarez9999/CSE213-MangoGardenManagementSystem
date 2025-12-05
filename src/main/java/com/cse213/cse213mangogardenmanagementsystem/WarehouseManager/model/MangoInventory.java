@@ -43,4 +43,5 @@ public class MangoInventory implements Serializable {
     public void setSpoiled(String spoiled) {
         this.spoiled = spoiled;
     }
+
 }

@@ -25,10 +25,10 @@ public class updateInventoryController {
         batchList = WarehouseManager.getMangoBatch();
         inventoryList = WarehouseManager.getMangoInventory();
 
-        mangoAddAndRemoveComboBox.getItems().addAll("ADD", "REMOVE");
+        mangoAddAndRemoveComboBox.getItems().addAll("Mango Add", "Mango Remove");
 
         if (batchList == null || batchList.isEmpty()) {
-            confirmMessageTextArea.setText("⚠ No Batch data found!");
+            confirmMessageTextArea.setText("No Batch data found!");
             return;
         }
 
@@ -41,7 +41,7 @@ public class updateInventoryController {
         }
 
         if (batchIdComboBox.getItems().isEmpty()) {
-            confirmMessageTextArea.setText("⚠ Batch list is loaded but Batch IDs are null!");
+            confirmMessageTextArea.setText("Batch list is loaded but Batch IDs are null!");
         }
     }
 
@@ -61,7 +61,7 @@ public class updateInventoryController {
         String qtyText = mangoQuantityTextField.getText();
 
         if (actionType == null || id == null || qtyText.isEmpty()) {
-            confirmMessageTextArea.setText("⚠ Select action, batch ID and enter quantity!");
+            confirmMessageTextArea.setText("Select action, batch ID and enter quantity!");
             return;
         }
 
@@ -69,14 +69,14 @@ public class updateInventoryController {
         try {
             qty = Integer.parseInt(qtyText);
         } catch (Exception e) {
-            confirmMessageTextArea.setText("⚠ Quantity must be numeric!");
+            confirmMessageTextArea.setText("Quantity must be numeric!");
             return;
         }
 
         MangoInventory inventory = getInventory(id);
 
         if (inventory == null) {
-            confirmMessageTextArea.setText("⚠ No inventory found for batch " + id);
+            confirmMessageTextArea.setText("No inventory found for batch " + id);
             return;
         }
 
@@ -84,7 +84,7 @@ public class updateInventoryController {
 
         if (actionType.equals("ADD")) {
             existingQty += qty;
-            confirmMessageTextArea.setText("✔ Added " + qty );
+            confirmMessageTextArea.setText("Added " + qty );
 
         } else if (actionType.equals("REMOVE")) {
             if (qty > existingQty) {
@@ -92,7 +92,7 @@ public class updateInventoryController {
                 return;
             }
             existingQty -= qty;
-            confirmMessageTextArea.setText("✔ Removed " + qty);
+            confirmMessageTextArea.setText("Removed " + qty);
         }
 
         inventory.setMangoQuantity(String.valueOf(existingQty));

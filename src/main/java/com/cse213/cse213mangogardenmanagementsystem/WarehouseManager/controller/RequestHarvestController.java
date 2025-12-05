@@ -11,10 +11,8 @@ public class RequestHarvestController {
 
     @FXML
     private TextField requestQuantityTextField;
-
     @FXML
     private TextArea currentTotalQuantityTextArea;
-
     @FXML
     private TextArea spoilageTotalQuantityTextArea;
 

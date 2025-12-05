@@ -8,19 +8,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class trackSpoilageController {
 
     @FXML
     private TableView<MangoInventory> trackSpoilageTableView;
-
     @FXML
     private TableColumn<MangoInventory, String> batchIDColumn;
     @FXML
     private TableColumn<MangoInventory, String> quantityColumn;
     @FXML
     private TableColumn<MangoInventory, String> spoilageQuantityColumn;
-
     @FXML
     private ComboBox<String> batchIdComboBox;
     @FXML
@@ -31,63 +30,60 @@ public class trackSpoilageController {
 
     @FXML
     public void initialize() {
-        // Load MangoBatch and MangoInventory from WarehouseManager
+
         batchList = WarehouseManager.getMangoBatch();
         inventoryList = WarehouseManager.getMangoInventory();
 
-        // Ensure every batch has an inventory entry (even if quantity/spoilage is empty)
-        for (MangoBatch batch : batchList) {
-            boolean exists = inventoryList.stream()
-                    .anyMatch(inv -> inv.getBatchId().equals(batch.getBatchId()));
-            if (!exists) {
-                inventoryList.add(new MangoInventory(batch.getBatchId(), "0", "0", batch));
+        for (MangoBatch b : batchList) {
+            boolean found = false;
+
+            for (MangoInventory inv : inventoryList) {
+                if (inv.getBatchId().equals(b.getBatchId())) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                inventoryList.add(new MangoInventory(b.getBatchId(), "0", "0", b));
             }
         }
 
-        // Bind TableView
         trackSpoilageTableView.setItems(inventoryList);
 
-        batchIDColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getBatchId()));
+        batchIDColumn.setCellValueFactory(new PropertyValueFactory<>("batchId"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("mangoQuantity"));
+        spoilageQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("spoiled"));
 
-        quantityColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getMangoQuantity()));
-
-        spoilageQuantityColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getSpoiled()));
-
-        // Fill ComboBox with all batch IDs
-        batchIdComboBox.setItems(FXCollections.observableArrayList(
-                batchList.stream().map(MangoBatch::getBatchId).toList()
-        ));
+        ObservableList<String> batchIDs = FXCollections.observableArrayList();
+        for (MangoBatch b : batchList) {
+            batchIDs.add(b.getBatchId());
+        }
+        batchIdComboBox.setItems(batchIDs);
     }
 
     @FXML
     public void saveSpoilageOnMouseClick(ActionEvent actionEvent) {
-        String selectedBatchId = batchIdComboBox.getValue();
+
+        String selectedBatch = batchIdComboBox.getValue();
         String spoilQty = spoilageQuantityTextField.getText();
 
-        if (selectedBatchId == null || spoilQty.isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please select a Batch ID and enter spoilage quantity.").show();
+        if (selectedBatch == null || spoilQty.isEmpty()) {
             return;
         }
 
-        // Update the spoilage quantity
+        // Update spoilage
         for (MangoInventory inv : inventoryList) {
-            if (inv.getBatchId().equals(selectedBatchId)) {
+            if (inv.getBatchId().equals(selectedBatch)) {
                 inv.setSpoiled(spoilQty);
                 break;
             }
         }
 
-        // Save updated inventory
         WarehouseManager.mangoInventory(inventoryList);
 
-        // Refresh TableView and clear inputs
         trackSpoilageTableView.refresh();
         batchIdComboBox.setValue(null);
         spoilageQuantityTextField.clear();
-
-        new Alert(Alert.AlertType.INFORMATION, "Spoilage updated successfully!").show();
     }
 }

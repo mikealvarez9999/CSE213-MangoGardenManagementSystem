@@ -4,13 +4,15 @@ import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.Mango
 import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.WarehouseManager;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class inventorySummaryController {
 
     @FXML
     private TableView<MangoInventory> inventorySummaryTableView;
-
     @FXML
     private TableColumn<MangoInventory, String> batchIdColumn;
     @FXML
@@ -27,29 +29,32 @@ public class inventorySummaryController {
 
     @FXML
     public void initialize() {
-        // Load inventory from WarehouseManager
+
         inventoryList = WarehouseManager.getMangoInventory();
 
-        // Bind TableView
+        batchIdColumn.setCellValueFactory(new PropertyValueFactory<>("batchId"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("mangoQuantity"));
+        spoilageColumn.setCellValueFactory(new PropertyValueFactory<>("spoiled"));
+
         inventorySummaryTableView.setItems(inventoryList);
+        calculateTotals();
+    }
 
-        batchIdColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getBatchId()));
+    private void calculateTotals() {
+        int totalQty = 0;
+        int totalSpoilage = 0;
 
-        quantityColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getMangoQuantity()));
+        for (MangoInventory inv : inventoryList) {
+            try {
+                totalQty += Integer.parseInt(inv.getMangoQuantity());
+            } catch (NumberFormatException e) {
+            }
 
-        spoilageColumn.setCellValueFactory(c ->
-                new javafx.beans.property.SimpleStringProperty(c.getValue().getSpoiled()));
-
-        // Calculate total quantity and spoilage
-        int totalQty = inventoryList.stream()
-                .mapToInt(inv -> Integer.parseInt(inv.getMangoQuantity()))
-                .sum();
-
-        int totalSpoilage = inventoryList.stream()
-                .mapToInt(inv -> Integer.parseInt(inv.getSpoiled()))
-                .sum();
+            try {
+                totalSpoilage += Integer.parseInt(inv.getSpoiled());
+            } catch (NumberFormatException e) {
+            }
+        }
 
         totalQuantityTextArea.setText(String.valueOf(totalQty));
         totalSpoilageTextArea.setText(String.valueOf(totalSpoilage));
