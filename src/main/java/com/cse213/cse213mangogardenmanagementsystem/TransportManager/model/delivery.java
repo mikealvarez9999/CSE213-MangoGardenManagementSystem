@@ -8,8 +8,8 @@ public class delivery implements Serializable {
 
 
     protected String orderID;
-    protected String driver;
-    protected String vehicle;
+    protected String driverID;
+    protected String vehicleID;
     protected String deliveryTime;
     protected String status;
 }

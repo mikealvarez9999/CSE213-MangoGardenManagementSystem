@@ -12,8 +12,6 @@ public class WarehouseManager {
     private static final String INV_FILE_NAME = "inventoryData.bin";
 
     public static boolean recordBatch(ObservableList<MangoBatch> batchList){
-//        // File থেকে load করে ArrayList init
-//        batchList = FileReadWrite.loadData(MangoBatch.class,FILE_NAME);
         FileReadWrite.saveData(batchList, FILE_NAME);
 
         return false;
@@ -40,9 +38,7 @@ public class WarehouseManager {
             return false;
         }
     }
-
-
-    // 3. Update Inventory
+    
     public boolean updateInventory() {
         // TODO: implement logic
         return false;

@@ -7,7 +7,7 @@ public class MangoInventory implements Serializable {
     private String batchId;
     private String mangoQuantity;
     private String spoiled;
-    private MangoBatch batch;  // NEW
+    private MangoBatch batch;  // To link MangoBatch data
 
     public MangoInventory(String batchId, String mangoQuantity, String spoiled, MangoBatch batch) {
         this.batchId = batchId;
@@ -38,5 +38,9 @@ public class MangoInventory implements Serializable {
 
     public void setBatch(MangoBatch batch) {
         this.batch = batch;
+    }
+
+    public void setSpoiled(String spoiled) {
+        this.spoiled = spoiled;
     }
 }

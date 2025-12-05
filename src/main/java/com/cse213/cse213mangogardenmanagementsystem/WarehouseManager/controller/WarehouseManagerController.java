@@ -61,11 +61,8 @@ public class WarehouseManagerController
         try {
 
             String path = FXML_BASE_PATH + fxmlFilename;
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-
             Node view = loader.load();
-
 
             contentContainer.getChildren().clear();
             contentContainer.getChildren().add(view);

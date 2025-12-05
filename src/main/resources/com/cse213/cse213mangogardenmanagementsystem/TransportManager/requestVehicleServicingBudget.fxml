@@ -10,16 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="334.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.TransportManager.controller.requestVehicleServicingBudgetController">
+<AnchorPane prefHeight="419.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.TransportManager.controller.requestVehicleServicingBudgetController">
    <children>
       <TableView fx:id="serviceBudgetTableView" layoutX="48.0" layoutY="82.0" prefHeight="107.0" prefWidth="477.0">
          <columns>
-            <TableColumn fx:id="vehicleIdColumn" prefWidth="75.0" text="VehicleID" />
-            <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
-            <TableColumn fx:id="capacityColumn" prefWidth="75.0" text="Capacity" />
-            <TableColumn fx:id="lastMaintenanceColumn" prefWidth="114.39990234375" text="Last Maintenance" />
-            <TableColumn fx:id="requriesMaintenanceColumn" prefWidth="136.80001220703127" text="Requires Maintenance" />
+            <TableColumn fx:id="vehicleIdColumn" prefWidth="122.39996337890625" text="VehicleID" />
+            <TableColumn fx:id="typeColumn" prefWidth="97.60003662109375" text="Type" />
+            <TableColumn fx:id="capacityColumn" prefWidth="99.20001220703125" text="Capacity" />
+            <TableColumn fx:id="MaintenanceDateColumn" prefWidth="160.79998779296875" text="Maintenance date" />
          </columns>
       </TableView>
       <Label layoutX="184.0" layoutY="33.0" text="Request Vehicle Servicing Budget">
@@ -27,11 +25,11 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Text layoutX="48.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VehicleID:" />
+      <Text layoutX="48.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VehicleID:" />
       <ComboBox fx:id="vehicleIdComboBox" layoutX="109.0" layoutY="214.0" prefWidth="150.0" />
-      <TextField fx:id="costTextField" layoutX="342.0" layoutY="223.0" />
-      <Text layoutX="300.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:" />
-      <Button layoutX="196.0" layoutY="300.0" mnemonicParsing="false" onAction="#submitRequestForAccountantOnMouseClick" text="Submit Request for Accountant" />
-      <Label fx:id="notelabel" layoutX="186.0" layoutY="258.0" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: silver;" text="Note:" />
+      <TextField fx:id="costTextField" layoutX="334.0" layoutY="213.0" />
+      <Text layoutX="300.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:" />
+      <Button layoutX="209.0" layoutY="363.0" mnemonicParsing="false" onAction="#submitRequestForAccountantOnMouseClick" text="Submit Request for Accountant" />
+      <Label fx:id="notelabel" layoutX="176.0" layoutY="253.0" prefHeight="87.0" prefWidth="275.0" style="-fx-background-color: silver;" text="Note: " />
    </children>
 </AnchorPane>
