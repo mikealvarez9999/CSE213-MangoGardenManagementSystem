@@ -10,8 +10,6 @@ public class ContactSupportController {
     @javafx.fxml.FXML
     private Button sendRequestButton;
     @javafx.fxml.FXML
-    private TextField orderIDTextField;
-    @javafx.fxml.FXML
     private TextField subjectTextField;
     @javafx.fxml.FXML
     private TextArea descriptionTextArea;

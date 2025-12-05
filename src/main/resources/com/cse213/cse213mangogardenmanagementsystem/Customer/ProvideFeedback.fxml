@@ -4,13 +4,11 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="284.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Customer.controller.ProvideFeedbackController">
    <children>
-      <TextField fx:id="orderIDTextField" layoutX="53.0" layoutY="130.0" promptText="OederID" />
       <TextArea fx:id="feedbackTextArea" layoutX="248.0" layoutY="121.0" prefHeight="131.0" prefWidth="246.0" promptText="Feedback" />
       <Button fx:id="submitFeedbackButton" layoutX="53.0" layoutY="219.0" mnemonicParsing="false" onAction="#submitFeedbackButtonOnAction" prefHeight="25.0" prefWidth="149.0" text="Submit Feedback" />
       <ComboBox fx:id="subjectComboBox" layoutX="52.0" layoutY="174.0" prefWidth="150.0" promptText="Subject" />
@@ -19,5 +17,6 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
+      <ComboBox fx:id="orderIdComboBox1" layoutX="52.0" layoutY="130.0" prefWidth="150.0" promptText="OrderID" />
    </children>
 </AnchorPane>

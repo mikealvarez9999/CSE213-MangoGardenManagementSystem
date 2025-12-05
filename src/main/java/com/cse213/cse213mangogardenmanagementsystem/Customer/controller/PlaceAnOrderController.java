@@ -26,7 +26,7 @@ public class PlaceAnOrderController {
 
     @javafx.fxml.FXML
     public void initialize(){
-        typeComboBox.getItems().addAll("Mango1", "Mango2");
+        typeComboBox.getItems().addAll("Fazli", "Lengra","Himsagar");
     }
     @javafx.fxml.FXML
     public void placeOrderButtonOnAction(ActionEvent actionEvent) {
