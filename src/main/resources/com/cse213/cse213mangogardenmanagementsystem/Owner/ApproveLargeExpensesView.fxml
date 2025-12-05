@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -19,16 +18,16 @@
        </Label>
        <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View and approve/reject large expense requests made by the Accountant." wrapText="true" />
 
-       <TableView fx:id="largeExpensesTV" layoutX="72.0" layoutY="85.0" prefHeight="200.0" prefWidth="461.0">
+       <TableView fx:id="largeExpensesTV" layoutX="33.0" layoutY="84.0" prefHeight="200.0" prefWidth="618.0">
         <columns>
-          <TableColumn fx:id="requestedByTC" prefWidth="96.0" text="Requested By" />
-          <TableColumn fx:id="transactionIDTC" prefWidth="98.0" text="Transaction ID" />
-            <TableColumn fx:id="amountTC" prefWidth="84.0" text="Amount" />
-            <TableColumn fx:id="reasonTC" prefWidth="182.0" text="Reason for request" />
+          <TableColumn fx:id="dateTC" prefWidth="96.0" text="Date" />
+          <TableColumn fx:id="transactionIDTC" prefWidth="114.0" text="Transaction ID" />
+            <TableColumn fx:id="amountTC" prefWidth="91.0" text="Amount" />
+            <TableColumn fx:id="reasonTC" prefWidth="207.0" text="Reason for request" />
+            <TableColumn fx:id="statusTC" prefWidth="107.0" text="Status" />
         </columns>
       </TableView>
-      <Text layoutX="83.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Transaction ID to apply action:" />
-      <TextField fx:id="idToApproveTF" layoutX="286.0" layoutY="307.0" />
+      <Text layoutX="103.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a request from the table (click on it) to apply action." wrappingWidth="365.37890625" />
       <Label fx:id="successLabel" alignment="CENTER" layoutX="72.0" layoutY="437.0" prefHeight="17.0" prefWidth="461.0" textFill="#46b915">
          <font>
             <Font name="System Bold" size="13.0" />

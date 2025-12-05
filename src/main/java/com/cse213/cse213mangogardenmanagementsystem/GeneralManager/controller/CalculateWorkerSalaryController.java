@@ -80,7 +80,7 @@ public class CalculateWorkerSalaryController {
         } else {
             workerFoundLabel.setText("");
             workerFoundLabel.setStyle("-fx-text-fill: #009E03;");
-            workerFoundLabel.setText("FOUND\nWorker ID: " + foundWorker.getID() + "\nName: " + foundWorker.getName() + "\nSalary Rate: " + foundWorker.getSalaryRate());
+            workerFoundLabel.setText("FOUND\nWorker ID: " + foundWorker.getEmployeeID() + "\nName: " + foundWorker.getName() + "\nSalary Rate: " + foundWorker.getSalaryRate());
         }
     }
 }

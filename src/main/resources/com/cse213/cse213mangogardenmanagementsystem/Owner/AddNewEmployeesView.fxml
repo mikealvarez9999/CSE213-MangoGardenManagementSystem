@@ -19,10 +19,10 @@
 
        <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="104.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee username:" />
       <TextField fx:id="usernameTF" layoutX="300.0" layoutY="100.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="116.0" layoutY="175.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee ID:" />
-      <TextField fx:id="idTF" layoutX="300.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="117.0" layoutY="211.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee name:" />
-      <TextField fx:id="nameTF" layoutX="300.0" layoutY="206.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="116.0" layoutY="175.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee name:" />
+      <TextField fx:id="nameTF" layoutX="300.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="117.0" layoutY="211.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee phone:" />
+      <TextField fx:id="phoneTF" layoutX="300.0" layoutY="206.0" prefHeight="25.0" prefWidth="174.0" />
       <Label alignment="CENTER_RIGHT" layoutX="117.0" layoutY="245.0" prefHeight="17.0" prefWidth="174.0" text="Enter new employee role:" />
       <ComboBox fx:id="roleCB" layoutX="300.0" layoutY="241.0" prefHeight="25.0" prefWidth="174.0" />
       <Label alignment="CENTER_RIGHT" layoutX="110.0" layoutY="280.0" prefHeight="17.0" prefWidth="181.0" text="Enter new employee joining date:" />

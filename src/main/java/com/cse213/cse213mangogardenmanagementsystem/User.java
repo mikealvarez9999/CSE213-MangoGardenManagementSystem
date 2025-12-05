@@ -33,4 +33,5 @@ public class User {
     // Getters
     public String getUsername() { return userName; }
     public String getPassword() { return userPwd; }
+    public String getPhoneNo() { return phoneNo; }
 }

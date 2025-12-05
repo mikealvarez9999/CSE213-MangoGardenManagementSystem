@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -27,16 +25,13 @@
             <TableColumn fx:id="phoneTC" prefWidth="142.0" text="Phone No." />
          </columns>
       </TableView>
-      <Label layoutX="54.0" layoutY="382.0" prefHeight="17.0" prefWidth="139.0" text="Enter employee ID to fire:" />
-      <Label layoutX="54.0" layoutY="417.0" text="Enter reason (if you want):" />
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="54.0" layoutY="483.0" prefHeight="17.0" prefWidth="573.0" textFill="RED">
+      <Label layoutX="54.0" layoutY="382.0" prefHeight="17.0" prefWidth="395.0" text="Select the employee that you want to fire from the Table." />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="54.0" layoutY="456.0" prefHeight="39.0" prefWidth="573.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="idToFireTF" layoutX="208.0" layoutY="378.0" />
-      <TextArea fx:id="reasonTA" layoutX="208.0" layoutY="416.0" prefHeight="56.0" prefWidth="240.0" />
-      <Button layoutX="511.0" layoutY="411.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Fire" textFill="RED">
+      <Button layoutX="304.0" layoutY="415.0" mnemonicParsing="false" onAction="#fireButtonOA" prefHeight="25.0" prefWidth="72.0" text="Fire" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
