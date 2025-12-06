@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.ViewAllEmployeesController">
+   <children>
+       <Label layoutX="20.0" layoutY="20.0" text="VIEW ALL EMPLOYEES">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View all currently enlisted employees." wrapText="true" />
+
+       <TableView fx:id="employeeTV" layoutX="20.0" layoutY="78.0" prefHeight="273.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="idTC" prefWidth="45.0" text="ID" />
+          <TableColumn fx:id="nameTC" prefWidth="177.0" text="Employee Name" />
+            <TableColumn fx:id="roleTC" prefWidth="97.0" text="Role" />
+            <TableColumn fx:id="joiningdateTC" prefWidth="111.0" text="Joining Date" />
+            <TableColumn fx:id="phoneTC" prefWidth="142.0" text="Phone No." />
+        </columns>
+      </TableView>
+      <Label layoutX="80.0" layoutY="365.0" prefHeight="17.0" prefWidth="157.0" text="Total Number of Employees:" />
+      <Label fx:id="totalEmployeesLabel" layoutX="237.0" layoutY="365.0" prefHeight="17.0" prefWidth="157.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="426.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.SetModifyEmployeeSalaryRatesController">
+   <children>
+       <Label layoutX="20.0" layoutY="20.0" text="SET/MODIFY GARDEN WORKER SALARY RATES">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefHeight="17.0" prefWidth="487.0" text="View the current employee salary rates, modify if needed." wrapText="true" />
+
+       <TableView fx:id="salaryRatesTV" layoutX="23.0" layoutY="85.0" prefHeight="200.0" prefWidth="487.0">
+        <columns>
+          <TableColumn fx:id="workerIDTC" prefWidth="251.0" text="Worker ID" />
+          <TableColumn fx:id="dailyRateTC" minWidth="0.0" prefWidth="235.0" text="Daily Rate" />
+        </columns>
+      </TableView>
+      <Label layoutX="23.0" layoutY="295.0" prefHeight="17.0" prefWidth="315.0" text="Select Worker: Click on a worker from the table to select it." />
+      <Label layoutX="56.0" layoutY="327.0" text="Set Salary Rate:" />
+      <TextField fx:id="setRateTF" layoutX="157.0" layoutY="322.0" />
+      <Button layoutX="363.0" layoutY="322.0" mnemonicParsing="false" onAction="#applyButtonOA" text="Apply Changes" />
+      <Label fx:id="successLabel" alignment="CENTER" layoutX="9.0" layoutY="366.0" prefHeight="17.0" prefWidth="516.0" textFill="#16bc00">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

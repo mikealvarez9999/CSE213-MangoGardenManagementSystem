@@ -8,7 +8,8 @@
 <?import javafx.scene.text.Font?>
 
 <!-- Background is near white: #fefefe -->
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.GeneralManagerController">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.GeneralManagerController">
 
     <!-- TOP: Header/Welcome Area (Primary Dark Green: #1E4E43FF) -->
     <top>
@@ -31,26 +32,20 @@
 
     <!-- LEFT: Navigation Menu (Primary Dark Green: #1E4E43FF) -->
     <left>
-        <VBox alignment="TOP_CENTER" prefWidth="240.0" spacing="15.0" style="-fx-background-color: #1e4e43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" prefHeight="560.0" prefWidth="263.0" spacing="15.0" style="-fx-background-color: #1e4e43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
             <children>
-                <!-- Navigation Label uses Bright Yellow/Green accent -->
-                <Label text="MANAGEMENT MODULES" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-padding: 0 0 10 0; -fx-text-fill: #F0F347;" />
 
                 <!-- Navigation Buttons (Bright Yellow/Green #F0F347 with Dark Green Text #1E4E43FF) -->
-                <Button onAction="#loadTaskSummaryView" text="📋 Task Management" maxWidth="Infinity"
-                        style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+                <Button maxWidth="Infinity" onAction="#loadApproveRejectBudgetRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Approve/Reject Budget Requests" />
+            <Button maxWidth="Infinity" onAction="#loadViewBudgetRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Budget Requests" />
 
-                <Button onAction="#loadBudgetRequestsView" text="💰 Budget Approvals" maxWidth="Infinity"
-                        style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
-
-                <Button onAction="#loadInventoryCheckView" text="🥭 Check Inventory" maxWidth="Infinity"
-                        style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
-
-                <Button onAction="#loadPayrollGenerationView" text="💵 Generate Payroll" maxWidth="Infinity"
-                        style="-fx-background-color: #F0F347; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
-
-                <VBox VBox.vgrow="ALWAYS" />
-                <Label text="Ver 1.0" style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" />
+                <Button maxWidth="Infinity" onAction="#loadCreateAndAssignTasksView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Create &amp; Assign Tasks" />
+            <Button maxWidth="Infinity" onAction="#loadTrackTaskCompletionView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Track Task Completion" />
+            <Button maxWidth="Infinity" onAction="#loadGenerateWeeklyTaskSummaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Generate Weekly Task Summary" />
+            <Button maxWidth="Infinity" onAction="#loadSalaryRateView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Set/Modify Salary Rates" />
+            <Button maxWidth="Infinity" onAction="#loadCalculateWorkerSalaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Generate Worker Payroll" />
+            <Button maxWidth="Infinity" onAction="#loadCheckInventoryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Check Inventory" />
+                <Label style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" text="Ver 1.0" />
             </children>
             <BorderPane.margin>
                 <Insets right="5.0" />
@@ -62,7 +57,7 @@
     <center>
         <VBox fx:id="contentContainer" alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 20px;">
             <!-- Text uses the Primary Dark Color -->
-            <Label text="Select a navigation item to view content." style="-fx-font-size: 18px; -fx-opacity: 0.7; -fx-padding: 50px; -fx-text-fill: #1E4E43FF;" />
+            <Label style="-fx-font-size: 18px; -fx-opacity: 0.7; -fx-padding: 50px; -fx-text-fill: #1E4E43FF;" text="Select a navigation item to view content." />
         </VBox>
     </center>
 </BorderPane>

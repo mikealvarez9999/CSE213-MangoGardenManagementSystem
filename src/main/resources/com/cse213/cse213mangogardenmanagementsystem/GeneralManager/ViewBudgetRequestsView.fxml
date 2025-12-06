@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller.ViewBudgetRequestsController">
+   <children>
+       <Label layoutX="20.0" layoutY="20.0" text="VIEW BUDGET REQUESTS">
+           <font>
+               <Font name="System Bold" size="20.0" />
+           </font>
+       </Label>
+       <Label layoutX="20.0" layoutY="50.0" prefWidth="660.0" text="View the budget requests submitted by the Accountant." wrapText="true" />
+      <TableView fx:id="budgetRequestsTV" layoutX="20.0" layoutY="80.0" prefHeight="285.0" prefWidth="635.0">
+        <columns>
+          <TableColumn fx:id="requestIDTC" prefWidth="75.0" text="Request ID" />
+          <TableColumn fx:id="categoryTC" prefWidth="132.0" text="Category" />
+            <TableColumn fx:id="amountTC" prefWidth="103.0" text="Amount" />
+            <TableColumn fx:id="purposeTC" prefWidth="220.0" text="Purpose" />
+            <TableColumn fx:id="statusTC" prefWidth="104.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

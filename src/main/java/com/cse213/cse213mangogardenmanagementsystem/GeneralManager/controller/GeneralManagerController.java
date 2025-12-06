@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.Employee;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -30,39 +31,9 @@ public class GeneralManagerController {
         this.currentUser = user;
 
         // Set welcome message in the header
-        welcomeLabel.setText("Welcome, " + currentUser.getName() + " | Role: " + currentUser.getRole());
-
-        // Load the default view (e.g., Task Summary) upon login
-        loadTaskSummaryView();
+        welcomeLabel.setText("Welcome, " + user.getName() + " | Role: " + user.getRole());
     }
 
-    // --- Navigation Handlers (Methods called by FXML Buttons) ---
-
-    @FXML
-    private void loadTaskSummaryView() {
-
-        loadFXMLView("TaskSummaryView.fxml");
-    }
-
-    @FXML
-    private void loadBudgetRequestsView() {
-        loadFXMLView("BudgetRequestsView.fxml");
-    }
-
-    @FXML
-    private void loadInventoryCheckView() {
-        loadFXMLView("InventoryCheckView.fxml");
-    }
-
-    @FXML
-    private void loadPayrollGenerationView() {
-        loadFXMLView("PayrollGenerationView.fxml");
-    }
-
-    /**
-     * Loads an FXML file into the contentContainer.
-     * @param fxmlFilename The name of the FXML file (e.g., "TaskSummaryView.fxml").
-     */
     private void loadFXMLView(String fxmlFilename) {
         try {
             // Construct the full absolute path
@@ -88,5 +59,45 @@ public class GeneralManagerController {
             contentContainer.getChildren().clear();
             contentContainer.getChildren().add(new Label("Error: Could not load component view " + fxmlFilename + ". Check the file path and FXML structure."));
         }
+    }
+
+    @FXML
+    public void loadCreateAndAssignTasksView(ActionEvent actionEvent) {
+        loadFXMLView("CreateAndAssignTaskView.fxml");
+    }
+
+    @FXML
+    public void loadTrackTaskCompletionView(ActionEvent actionEvent) {
+        loadFXMLView("TrackTasksView.fxml");
+    }
+
+    @FXML
+    public void loadGenerateWeeklyTaskSummaryView(ActionEvent actionEvent) {
+        loadFXMLView("GenerateTaskReportView.fxml");
+    }
+
+    @FXML
+    public void loadApproveRejectBudgetRequestsView(ActionEvent actionEvent) {
+        loadFXMLView("ApproveRejectBudgetRequestsView.fxml");
+    }
+
+    @FXML
+    public void loadCalculateWorkerSalaryView(ActionEvent actionEvent) {
+        loadFXMLView("CalculateWorkerSalaryView.fxml");
+    }
+
+    @FXML
+    public void loadSalaryRateView(ActionEvent actionEvent) {
+        loadFXMLView("SetModifyEmployeeSalaryRatesView.fxml");
+    }
+
+    @FXML
+    public void loadCheckInventoryView(ActionEvent actionEvent) {
+        loadFXMLView("CheckInventoryView.fxml");
+    }
+
+    @FXML
+    public void loadViewBudgetRequestsView(ActionEvent actionEvent) {
+        loadFXMLView("ViewBudgetRequestsView.fxml");
     }
 }
