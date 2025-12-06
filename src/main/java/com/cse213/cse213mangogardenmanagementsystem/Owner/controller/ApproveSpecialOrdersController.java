@@ -38,6 +38,8 @@ public class ApproveSpecialOrdersController {
         orderIDTC.setCellValueFactory(new PropertyValueFactory<SpecialOrder, Integer>("orderID"));
 
         specialOrdersTV.setItems(Owner.loadAllSpecialOrders());
+
+        actionCB.getItems().addAll("Approved", "Rejected");
     }
 
     @javafx.fxml.FXML

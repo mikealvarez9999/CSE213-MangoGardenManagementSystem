@@ -10,8 +10,6 @@ public class MakePaymentsController {
     @javafx.fxml.FXML
     private TextField paymentIDTextField;
     @javafx.fxml.FXML
-    private TextField orderIDTextField;
-    @javafx.fxml.FXML
     private TextField amountTextField;
     @javafx.fxml.FXML
     private Label confirmationLabel;

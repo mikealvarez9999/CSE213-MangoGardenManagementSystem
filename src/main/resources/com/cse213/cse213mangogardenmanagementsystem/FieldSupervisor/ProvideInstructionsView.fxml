@@ -18,9 +18,9 @@
 
         <TableView fx:id="issueReportTable" layoutX="20.0" layoutY="100.0" prefHeight="250.0" prefWidth="660.0">
             <columns>
-                <TableColumn prefWidth="150.0" text="Report ID" />
-                <TableColumn prefWidth="150.0" text="Reported By" />
-                <TableColumn prefWidth="360.0" text="Issue Description" />
+                <TableColumn fx:id="idcol" prefWidth="150.0" text="Report ID" />
+<!--                <TableColumn prefWidth="150.0" text="Reported By" />-->
+                <TableColumn fx:id="descol" prefWidth="360.0" text="Issue Description" />
             </columns>
         </TableView>
 

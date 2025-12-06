@@ -30,7 +30,7 @@ public class SetModifyEmployeeSalaryRatesController {
         workerIDTC.setCellValueFactory(new PropertyValueFactory<GardenWorker, Integer>("workerID"));
         dailyRateTC.setCellValueFactory(new PropertyValueFactory<GardenWorker, Integer>("dailyRate"));
         ObservableList<GardenWorker> workerList = GeneralManager.loadWorkers();
-        salaryRatesTV.getItems().addAll((GardenWorker) workerList);
+        salaryRatesTV.getItems().addAll( workerList);
         salaryRatesTV.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null){
                 selectedWorker = newValue;

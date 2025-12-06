@@ -35,6 +35,7 @@ public class Task implements Serializable {
         return taskID;
     }
 
+
     public String getDetails() {
         return details;
     }

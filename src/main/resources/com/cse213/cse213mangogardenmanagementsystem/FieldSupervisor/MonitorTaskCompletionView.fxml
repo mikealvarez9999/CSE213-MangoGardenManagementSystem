@@ -22,10 +22,10 @@
 
         <TableView fx:id="taskCompletionTable" layoutX="20.0" layoutY="140.0" prefHeight="400.0" prefWidth="645.0">
             <columns>
-                <TableColumn prefWidth="150.0" text="Task ID" />
-                <TableColumn prefWidth="236.5" text="Task Description" />
-                <TableColumn prefWidth="117.5" text="Assigned To" />
-                <TableColumn prefWidth="140.0" text="Status" />
+                <TableColumn fx:id="taskIdColumn" prefWidth="150.0" text="Task ID" />
+                <TableColumn fx:id="taskDescColumn" prefWidth="236.5" text="Task Description" />
+<!--                <TableColumn fx:id="assignedToColumn" prefWidth="117.5" text="Assigned To" />-->
+                <TableColumn fx:id="statusColumn" prefWidth="140.0" text="Status" />
             </columns>
         </TableView>
     </children>

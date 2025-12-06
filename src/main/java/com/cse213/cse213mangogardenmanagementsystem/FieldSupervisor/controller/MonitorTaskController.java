@@ -13,10 +13,10 @@ public class MonitorTaskController
     @FXML private TableView<Task> taskCompletionTable;
 
     // FXML Columns - assuming these are manually defined in FXML
-    @FXML private TableColumn taskIdColumn;
-    @FXML private TableColumn taskDescColumn;
-    @FXML private TableColumn assignedToColumn;
-    @FXML private TableColumn statusColumn;
+    @FXML private TableColumn<Task, Integer> taskIdColumn;
+    @FXML private TableColumn<Task,String> taskDescColumn;
+//    @FXML private TableColumn<Task,String> assignedToColumn;
+    @FXML private TableColumn<Task,String> statusColumn;
 
 
     @FXML
@@ -25,9 +25,10 @@ public class MonitorTaskController
         taskCompletionTable.setItems(FieldSupervisor.getTasksForMonitoring());
 
         // Bind columns
-        taskIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        taskDescColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        taskIdColumn.setCellValueFactory(new PropertyValueFactory<Task,Integer>("id"));
+        taskDescColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("description"));
+//        assignedToColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("assigned"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("status"));
 
         // Assigned To column needs custom CellFactory if binding to ObservableList<String>
         // assignedToColumn.setCellValueFactory(new PropertyValueFactory<>("assignedWorkers"));

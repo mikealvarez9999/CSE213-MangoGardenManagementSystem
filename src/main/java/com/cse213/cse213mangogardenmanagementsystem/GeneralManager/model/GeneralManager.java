@@ -15,7 +15,7 @@ public class GeneralManager extends Employee implements Serializable {
     private static final String TASK_FILE = "Tasks.bin";
     private static final String WORKER_FILE = "Workers.bin";
     private static final String SALARY_RECORDS_FILE = "SalaryRecords.bin";
-    private static final String BUDGET_REQUESTS_FILE = "BudgetRequests.bin";
+    private static final String BUDGET_REQUESTS_FILE = "budget_requests.bin";
 
     public GeneralManager(String username, String password, String employeeID, String name) {
         super(username, password, employeeID, name, "GeneralManager");

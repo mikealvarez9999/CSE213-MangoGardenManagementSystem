@@ -43,6 +43,14 @@ public class FieldSupervisor extends Employee {
             );
             FileReadWrite.saveData(TASKS, TASK_FILE);
         }
+
+        if (ISSUE_REPORTS.isEmpty()) {
+            ISSUE_REPORTS.addAll(
+                    new IssueReport( 123, "some issue"),
+                    new IssueReport( 113, "some issue")
+            );
+            FileReadWrite.saveData(ISSUE_REPORTS, ISSUE_FILE);
+        }
     }
 
     public FieldSupervisor(String username, String password, String employeeID, String name) {

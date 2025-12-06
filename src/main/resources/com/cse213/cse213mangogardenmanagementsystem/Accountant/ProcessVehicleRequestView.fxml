@@ -28,7 +28,7 @@
             </columns>
         </TableView>
 
-        <Button layoutX="460.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleRejectMaintenance" text="❌ Reject Selected" />
-        <Button layoutX="575.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleApproveMaintenance" text="✅ Approve &amp; Generate Budget" />
+        <Button layoutX="460.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleRejectMaintenance" text="Reject Selected" />
+        <Button layoutX="575.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleApproveMaintenance" text="Approve and Generate Budget" />
     </children>
 </AnchorPane>

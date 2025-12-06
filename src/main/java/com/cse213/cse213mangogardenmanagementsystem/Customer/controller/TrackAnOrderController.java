@@ -22,8 +22,6 @@ public class TrackAnOrderController {
     private TableColumn<OrderTrackDemo, String> statusColumn;
     @FXML
     private TableColumn<OrderTrackDemo, String> locationColumn;
-    @FXML
-    private TableColumn<OrderTrackDemo, String> deliveryProgressColumn;
 
     @FXML
     private Label trackAnOrderLabel;
@@ -39,7 +37,7 @@ public class TrackAnOrderController {
         // Map columns
         statusColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("status"));
         locationColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("location"));
-        deliveryProgressColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("deliveryProgress"));
+//        deliveryProgressColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("deliveryProgress"));
 
         // Demo tracking data
         orderTrackingList.addAll(

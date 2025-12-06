@@ -22,8 +22,6 @@ public class ViewAllEmployeesController {
     private TableColumn<Employee, LocalDate> joiningdateTC;
     @javafx.fxml.FXML
     private TableColumn<Employee, String> phoneTC;
-    @javafx.fxml.FXML
-    private Label totalEmployeesLabel;
 
     @javafx.fxml.FXML
     public void initialize(){
@@ -34,7 +32,5 @@ public class ViewAllEmployeesController {
         roleTC.setCellValueFactory(new PropertyValueFactory<Employee, String>("role"));
 
         employeeTV.setItems(Owner.loadAllEmployees());
-        totalEmployeesLabel.setText(null);
-        totalEmployeesLabel.setText("Total Number of Employees: " + employeeTV.getItems().toArray().length);
     }
 }

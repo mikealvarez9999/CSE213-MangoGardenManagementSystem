@@ -15,11 +15,11 @@ import java.io.Serializable;
 
 public class Owner extends User implements Serializable {
     private static final String EMPLOYEES_FILE = "Employees.bin";
-    private static final String LARGE_EXPENSES_FILE = "LargeExpenses.bin";
+    private static final String LARGE_EXPENSES_FILE = "large_expense_requests.bin";
     private static final String SPECIAL_ORDERS_FILE = "SpecialOrders.bin";
     private static final String ORDERS_FILE = "Orders.bin";
     private static final String TASK_FILE = "Tasks.bin";
-    private static final String INVENTORY_FILE = "inventoryData.bin"
+    private static final String INVENTORY_FILE = "inventoryData.bin";
 
     public Owner(String userName, String userPwd) {
         super(userName, userPwd);

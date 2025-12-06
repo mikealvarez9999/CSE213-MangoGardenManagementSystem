@@ -11,11 +11,10 @@ public class InstructionsController
 {
     @FXML private TableView<IssueReport> issueReportTable;
     @FXML private TextArea txtInstructions;
-
-    // FXML Columns - assuming these are manually defined in FXML
-    @FXML private TableColumn reportIdColumn;
-    @FXML private TableColumn reportedByColumn;
-    @FXML private TableColumn issueDescColumn;
+    @FXML
+    private TableColumn<IssueReport,Integer> idcol;
+    @FXML
+    private TableColumn<IssueReport,String> descol;
 
     @FXML
     public void initialize() {
@@ -23,10 +22,9 @@ public class InstructionsController
         issueReportTable.setItems(FieldSupervisor.getPendingIssueReports());
 
         // Bind columns
-        // Assuming IssueReport model has getId(), getReportedBy(), getIssue() methods
-         reportIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-         reportedByColumn.setCellValueFactory(new PropertyValueFactory<>("reportedBy"));
-         issueDescColumn.setCellValueFactory(new PropertyValueFactory<>("issue"));
+         idcol.setCellValueFactory(new PropertyValueFactory<IssueReport,Integer>("id"));
+//         reportedByColumn.setCellValueFactory(new PropertyValueFactory<>("reportedBy"));
+         descol.setCellValueFactory(new PropertyValueFactory<IssueReport,String>("issue"));
 
         // Listener to load selected issue into text area (if needed for context)
         issueReportTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {

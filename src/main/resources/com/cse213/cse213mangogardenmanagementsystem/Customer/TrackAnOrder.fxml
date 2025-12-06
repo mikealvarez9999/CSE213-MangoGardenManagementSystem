@@ -9,15 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="291.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Customer.controller.TrackAnOrderController">
+<AnchorPane prefHeight="291.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Customer.controller.TrackAnOrderController">
     <children>
         <Button fx:id="trackOrderButton" layoutX="49.0" layoutY="232.0" mnemonicParsing="false" onAction="#trackOrderButtonOnAction" prefHeight="25.0" prefWidth="140.0" text="Track Order" />
         <TextArea fx:id="orderDataTextArea" layoutX="49.0" layoutY="146.0" prefHeight="65.0" prefWidth="187.0" promptText="Order Data" />
         <TableView fx:id="trackOrderTableView" layoutX="265.0" layoutY="91.0" prefHeight="166.0" prefWidth="329.0">
             <columns>
-                <TableColumn fx:id="statusColumn" prefWidth="109.0" text="Status" />
-                <TableColumn fx:id="locationColumn" prefWidth="109.0" text="Location" />
-                <TableColumn fx:id="deliveryProgressColumn" prefWidth="109.0" text="Delivery Progress" />
+                <TableColumn fx:id="statusColumn" prefWidth="170.0" text="Status" />
+                <TableColumn fx:id="locationColumn" prefWidth="158.0" text="Address" />
             </columns>
         </TableView>
         <Label fx:id="trackAnOrderLabel" layoutX="228.0" layoutY="38.0" text="Track An Order">

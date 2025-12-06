@@ -9,8 +9,6 @@ import java.time.LocalDate;
 
 public class CreateAndAssignTaskController {
     @javafx.fxml.FXML
-    private ComboBox<String> fieldSupervisorCB;
-    @javafx.fxml.FXML
     private Label successLabel;
     @javafx.fxml.FXML
     private TextArea taskDetailsTA;
