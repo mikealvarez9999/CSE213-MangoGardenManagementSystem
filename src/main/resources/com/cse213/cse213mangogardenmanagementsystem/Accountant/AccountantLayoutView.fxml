@@ -61,6 +61,9 @@
                 <Button onAction="#loadProcessVehicleRequestView" text="Process Vehicle Maint." maxWidth="Infinity"
                         style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
 
+<!--                <Button onAction="#logout" text="Log out." maxWidth="Infinity"-->
+<!--                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />-->
+
 
                 <VBox VBox.vgrow="ALWAYS" />
                 <Label text="Ver 1.0" style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" />

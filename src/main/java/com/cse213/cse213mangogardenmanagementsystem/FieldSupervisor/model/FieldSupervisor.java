@@ -1,17 +1,18 @@
 package com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model;
 
 import com.cse213.cse213mangogardenmanagementsystem.Employee;
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class FieldSupervisor extends Employee  {
+public class FieldSupervisor extends Employee {
 
     // --- PERSISTENCE SETUP ---
     private static final String Worker_FILE = "Workers.bin";
-    private static final String TASK_FILE = "tasks.bin";
+    private static final String TASK_FILE = "Tasks.bin";
     private static final String ATTENDANCE_FILE = "attendance.bin";
     private static final String ISSUE_FILE = "issues.bin";
     private static final String INV_FILE = "inventory.bin";
@@ -36,7 +37,10 @@ public class FieldSupervisor extends Employee  {
             FileReadWrite.saveData(INVENTORY, INV_FILE);
         }
         if (TASKS.isEmpty()) {
-            TASKS.addAll(new Task("Some tash"), new Task("more task"));
+            TASKS.addAll(
+                    new Task("some info" ),
+                    new Task("more task")
+            );
             FileReadWrite.saveData(TASKS, TASK_FILE);
         }
     }
@@ -82,7 +86,7 @@ public class FieldSupervisor extends Employee  {
 
     public static void markTaskVerified(int taskId) {
         for (Task task : TASKS) {
-            if (task.getId() == taskId) {
+            if (task.getTaskID() == taskId) {
                 task.setStatus("Completed & Verified");
                 FileReadWrite.saveData(TASKS, TASK_FILE);
                 return;
@@ -116,7 +120,7 @@ public class FieldSupervisor extends Employee  {
     public static void saveDailySummary(LocalDate date, String notes) {
         // Mock aggregation of data into the notes field for simplicity
         int totalWorkers = WorkerS.size();
-        int completedTasks = (int) TASKS.stream().filter(t -> t.status.equals("Completed")).count();
+        int completedTasks = (int) TASKS.stream().filter(t -> t.getStatus().equals("Completed")).count();
 
         String content = String.format("Summary for %s: Total Workers: %d. Tasks Completed: %d. Notes: %s", date.toString(), totalWorkers, completedTasks, notes);
 

@@ -1,5 +1,6 @@
 package com.cse213.cse213mangogardenmanagementsystem.TransportManager.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.Customer.model.Order;
 import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
@@ -12,11 +13,11 @@ public class TransportManager extends Employee implements Serializable {
 
     private static final String VEHICLE_FILE = "vehicles.bin";
     private static final String DRIVER_FILE = "drivers.bin";
-    private static final String ORDER_FILE = "orders.bin";
+    private static final String ORDER_FILE = "Orders.bin";
 
     private static ObservableList<Vehicles> vehicleList = FXCollections.observableArrayList();
     private static ObservableList<Drivers> driverList = FXCollections.observableArrayList();
-    private static ObservableList<orders> orderList = FXCollections.observableArrayList();
+    private static ObservableList<Order> orderList = FXCollections.observableArrayList();
 
     public TransportManager(String username, String password, String employeeID, String name) {
         super(username, password, employeeID, name, "TransportManager");
@@ -95,14 +96,14 @@ public class TransportManager extends Employee implements Serializable {
     }
 
     private static void loadOrderDemoData() {
-        orderList.add(new orders("O1", 100, "Uttara"));
-        orderList.add(new orders("O2", 50, "Mirpur"));
-        orderList.add(new orders("O3", 70, "dhanmondi"));
-        orderList.add(new orders("O4", 90, "Bashundhara"));
-        orderList.add(new orders("O5", 60, "Ajompur"));
+        orderList.add(new Order("O1", 100, "01627939394","Uttara"));
+        orderList.add(new Order("O2", 50, "01627939394","Mirpur"));
+        orderList.add(new Order("O3", 70, "01627939394","dhanmondi"));
+        orderList.add(new Order("O4", 90, "01627939394","Bashundhara"));
+        orderList.add(new Order("O5", 60, "01627939394","Ajompur"));
     }
 
-    public static ObservableList<orders> getOrderList() {
+    public static ObservableList<Order> getOrderList() {
         loadOrderDemoData();
 //        loadOrderData();
         return orderList;
@@ -117,9 +118,9 @@ public class TransportManager extends Employee implements Serializable {
         }
     }
 
-    private static ObservableList<orders> loadOrderData() {
+    private static ObservableList<Order> loadOrderData() {
         try {
-            orderList = FileReadWrite.loadData(orders.class,ORDER_FILE);
+            orderList = FileReadWrite.loadData(Order.class,ORDER_FILE);
             return orderList;
         } catch (Exception e) {
             return orderList;

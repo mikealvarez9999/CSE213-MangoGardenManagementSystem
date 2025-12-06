@@ -1,12 +1,16 @@
 package com.cse213.cse213mangogardenmanagementsystem.GardenWorker.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.Task;
+
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+//import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,9 +52,9 @@ public class ViewAssignedTaskController {
     public void initialize() {
         // Initialize TableView columns
         taskIDColumn.setCellValueFactory(new PropertyValueFactory<>("taskID"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        cropTypeColumn.setCellValueFactory(new PropertyValueFactory<>("cropType"));
-        deadLineColumn.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("details"));
+        cropTypeColumn.setCellValueFactory(new PropertyValueFactory<>("assignedOn"));
+        deadLineColumn.setCellValueFactory(new PropertyValueFactory<>("expectedCompletion"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         // Load tasks
@@ -60,9 +64,12 @@ public class ViewAssignedTaskController {
     private void loadTasks() {
         // Here you can load tasks from a database or file. For now, let's use dummy data
         taskList = FXCollections.observableArrayList(
-                new Task("T001", "Field A", "Mango", "2025-12-10", "Pending"),
-                new Task("T002", "Field B", "Banana", "2025-12-12", "Completed"),
-                new Task("T003", "Field C", "Guava", "2025-12-15", "Pending")
+                new com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task(
+                        "Apply fertilizer to Sector A mango saplings.",
+                        "Pending",
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(3)
+                )
         );
 
         assignedTaskTableView.setItems(taskList);
@@ -78,9 +85,9 @@ public class ViewAssignedTaskController {
         }
 
         List<Task> filteredTasks = taskList.stream()
-                .filter(task -> task.getTaskID().toLowerCase().contains(searchText)
-                        || task.getLocation().toLowerCase().contains(searchText)
-                        || task.getCropType().toLowerCase().contains(searchText)
+                .filter(task -> String.valueOf(task.getTaskID()).toLowerCase().contains(searchText)
+//                        || task.getLocation().toLowerCase().contains(searchText)
+//                        || task.getCropType().toLowerCase().contains(searchText)
                         || task.getStatus().toLowerCase().contains(searchText))
                 .collect(Collectors.toList());
 

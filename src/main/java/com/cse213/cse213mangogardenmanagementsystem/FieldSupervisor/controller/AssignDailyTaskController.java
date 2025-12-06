@@ -2,7 +2,8 @@ package com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.FieldSupervisor;
 import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.Worker;
-import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.Task;
+
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,7 +36,7 @@ public class AssignDailyTaskController
         // FIX: Replaced Stream filter with standard for loop
         ObservableList<String> taskDescriptions = FXCollections.observableArrayList();
         for (Task task : FieldSupervisor.getTasks()) {
-            taskDescriptions.add(task.getDescription());
+            taskDescriptions.add(task.getDetails());
         }
         cmbTasks.getItems().addAll(taskDescriptions);
         // NOTE: The ListView will display worker names correctly if the Worker model has a proper toString() method.
@@ -87,7 +88,7 @@ public class AssignDailyTaskController
             // FIX: Use standard for loop logic (already implemented in previous step)
             selectedTask = null;
             for (Task task : FieldSupervisor.getTasks()) {
-                if (task.getDescription().equals(selectedTaskDesc)) {
+                if (task.getDetails().equals(selectedTaskDesc)) {
                     selectedTask = task;
                     break;
                 }
@@ -102,7 +103,7 @@ public class AssignDailyTaskController
         // 2. Call the Model to save the assignment
         FieldSupervisor.assignTask(selectedTask, currentAssignment);
 
-        System.out.println("Assignment finalized for Task ID: " + selectedTask.getId());
+        System.out.println("Assignment finalized for Task ID: " + selectedTask.getID());
 
         // Clear UI state
         currentAssignment.clear();

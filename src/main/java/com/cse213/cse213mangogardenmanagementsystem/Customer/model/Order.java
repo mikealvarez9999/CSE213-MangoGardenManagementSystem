@@ -11,11 +11,15 @@ public class Order implements Serializable{
     protected String type, status;
     protected int quantity;
     protected LocalDate date;
+    protected String address;
     protected String phoneNum;
     protected double orderAmount;
 
+    public Order(String type, int quantity, String phoneNum) {
+    }
+
     public int getOrderID() {
-        return orderID;
+        return  orderID;
     }
 
     public String getType() {
@@ -42,16 +46,21 @@ public class Order implements Serializable{
         return status; 
     }
 
+    public String getAddress(){
+        return address;
+    }
+
     public void setStatus(String newStatus) {
         this.status = newStatus;
     }
 
-    public Order(String type, int quantity, String phoneNum) {
+    public Order(String type, int quantity, String phoneNum, String address) {
         this.orderID = 100 + RANDOM.nextInt(900);
         this.type = type;
         this.quantity = quantity;
         this.date = LocalDate.now();
         this.phoneNum = phoneNum;
+        this.address = address;
         this.orderAmount = 0;
         this.status = "Pending";
     }

@@ -37,7 +37,7 @@ public class PlaceAnOrderController {
             return;
         } else {
 
-            Order newOrder = new Order(typeComboBox.getValue(), Integer.parseInt(quantityTextField.getText()), phoneNumberTF.getText());
+            Order newOrder = new Order(typeComboBox.getValue(), Integer.parseInt(quantityTextField.getText()),addressTextArea.getText(), phoneNumberTF.getText());
             if (Customer.addOrderToFile(newOrder)){
                 successLabel.setText("");
                 successLabel.setText("Order number " + newOrder.getOrderID() + " created successfully!");
