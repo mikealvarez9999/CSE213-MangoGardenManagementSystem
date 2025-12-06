@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.Owner.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.Accountant;
+import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.LargeExpenseRequest;
 import com.cse213.cse213mangogardenmanagementsystem.Owner.model.Owner;
 import javafx.scene.control.*;
 import javafx.event.*;
@@ -33,7 +34,7 @@ public class ApproveLargeExpensesController {
         dateTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, LocalDate>("date"));
         reasonTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, String>("description"));
         statusTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, String>("status"));
-        transactionIDTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, Integer>("id"));
+        transactionIDTC.setCellValueFactory(new PropertyValueFactory<LargeExpenseRequest, String>("id"));
 
         largeExpensesTV.setItems(Owner.loadAllLargeExpenseRequests());
     }

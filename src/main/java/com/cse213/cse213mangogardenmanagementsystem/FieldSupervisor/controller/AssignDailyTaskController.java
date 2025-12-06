@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
+// import java.util.stream.Collectors; // REMOVED: Stream import is no longer needed
 
 public class AssignDailyTaskController
 {
@@ -32,8 +32,13 @@ public class AssignDailyTaskController
         listAssignedWorkers.setItems(currentAssignment);
 
         // Setup Combo Box with existing task descriptions (or mock tasks)
-        cmbTasks.getItems().addAll(FieldSupervisor.getTasks().stream()
-                .map(Task::getDescription).collect(Collectors.toList()));
+        // FIX: Replaced Stream filter with standard for loop
+        ObservableList<String> taskDescriptions = FXCollections.observableArrayList();
+        for (Task task : FieldSupervisor.getTasks()) {
+            taskDescriptions.add(task.getDescription());
+        }
+        cmbTasks.getItems().addAll(taskDescriptions);
+        // NOTE: The ListView will display worker names correctly if the Worker model has a proper toString() method.
 
         // Allow multiple selection in list views
         listWorkers.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -79,10 +84,19 @@ public class AssignDailyTaskController
         if (!taskDescription.isEmpty()) {
             selectedTask = new Task(taskDescription);
         } else {
-            // Find existing task object based on selection
-            selectedTask = FieldSupervisor.getTasks().stream()
-                    .filter(t -> t.getDescription().equals(selectedTaskDesc))
-                    .findFirst().orElse(new Task(selectedTaskDesc));
+            // FIX: Use standard for loop logic (already implemented in previous step)
+            selectedTask = null;
+            for (Task task : FieldSupervisor.getTasks()) {
+                if (task.getDescription().equals(selectedTaskDesc)) {
+                    selectedTask = task;
+                    break;
+                }
+            }
+
+            // If task wasn't found (shouldn't happen if loaded correctly), create a new one
+            if (selectedTask == null) {
+                selectedTask = new Task(selectedTaskDesc);
+            }
         }
 
         // 2. Call the Model to save the assignment

@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model;
 
-import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.GardenWorker;
+import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.BudgetRequest;
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GardenWorker;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,9 +47,9 @@ public class GeneralManager {
         }
     }
 
-//    public static ObservableList<BudgetRequest> loadBudgetRequests(){
-//        ObservableList<BudgetRequest> budgetRequestObservableList = FXCollections.observableArrayList();
-//        budgetRequestObservableList = FileReadWrite.loadData(BudgetRequest.class, BUDGET_REQUESTS_FILE);
-//        return budgetRequestObservableList;
-//    }
+    public static ObservableList<BudgetRequest> loadBudgetRequests(){
+        ObservableList<BudgetRequest> budgetRequestObservableList = FXCollections.observableArrayList();
+        budgetRequestObservableList = FileReadWrite.loadData(BudgetRequest.class, BUDGET_REQUESTS_FILE);
+        return budgetRequestObservableList;
+    }
 }

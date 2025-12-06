@@ -1,6 +1,6 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.GardenWorker;
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GardenWorker;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GeneralManager;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Salary;
 import javafx.collections.ObservableList;
@@ -68,7 +68,7 @@ public class CalculateWorkerSalaryController {
     public void searchWorkerButtonOA(ActionEvent actionEvent) {
         ObservableList<GardenWorker> workerList = GeneralManager.loadWorkers();
         for (GardenWorker worker: workerList){
-            if (worker.getID() == Integer.parseInt(workerIDTF.getText())){
+            if (worker.getWorkerID() == Integer.parseInt(workerIDTF.getText())){
                foundWorker = worker;
                break;
             }
@@ -80,7 +80,7 @@ public class CalculateWorkerSalaryController {
         } else {
             workerFoundLabel.setText("");
             workerFoundLabel.setStyle("-fx-text-fill: #009E03;");
-            workerFoundLabel.setText("FOUND\nWorker ID: " + foundWorker.getEmployeeID() + "\nName: " + foundWorker.getName() + "\nSalary Rate: " + foundWorker.getSalaryRate());
+            workerFoundLabel.setText("FOUND\nWorker ID: " + foundWorker.getWorkerID() + "\nName: " + foundWorker.getName() + "\nSalary Rate: " + foundWorker.getSalaryRate());
         }
     }
 }

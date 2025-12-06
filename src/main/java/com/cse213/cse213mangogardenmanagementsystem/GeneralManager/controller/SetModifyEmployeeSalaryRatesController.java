@@ -1,9 +1,8 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.GardenWorker;
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GardenWorker;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GeneralManager;
-import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Salary;
-import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -31,7 +30,7 @@ public class SetModifyEmployeeSalaryRatesController {
         workerIDTC.setCellValueFactory(new PropertyValueFactory<GardenWorker, Integer>("workerID"));
         dailyRateTC.setCellValueFactory(new PropertyValueFactory<GardenWorker, Integer>("dailyRate"));
         ObservableList<GardenWorker> workerList = GeneralManager.loadWorkers();
-        salaryRatesTV.getItems().addAll(workerList);
+        salaryRatesTV.getItems().addAll((GardenWorker) workerList);
         salaryRatesTV.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null){
                 selectedWorker = newValue;

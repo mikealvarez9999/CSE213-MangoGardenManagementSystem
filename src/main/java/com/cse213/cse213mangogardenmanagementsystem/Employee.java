@@ -15,7 +15,7 @@ public class Employee extends User implements Serializable {
     public Employee(String username, String password, String employeeID, String name, String role) {
         // CRITICAL FIX: Pass the provided parameters (username, password) to the User constructor
         super(username, password);
-        this.employeeID = employeeID;
+        this.employeeID = 1000 + RANDOM.nextInt(9999);
         this.name = name;
         this.role = role;
     }
@@ -32,8 +32,19 @@ public class Employee extends User implements Serializable {
 
 
     // Getters and Setters (omitted for brevity)
-    public String getEmployeeID() { return employeeID; }
-    public String getName() { return name; }
-    public String getRole() { return role; }
-    public LocalDate getJoiningDate() { return joiningDate; }
+    public String getEmployeeID() {
+        return String.valueOf(employeeID);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public LocalDate getJoiningDate() {
+        return joiningDate;
+    }
 }

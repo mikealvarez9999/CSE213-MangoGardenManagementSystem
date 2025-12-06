@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.Accountant;
+import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.BudgetRequest;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GeneralManager;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class ViewBudgetRequestsController {
         ObservableList<BudgetRequest> budgetRequests = GeneralManager.loadBudgetRequests();
         amountTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, Double>("amount"));
         purposeTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, String>("purpose"));
-        categoryTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, Accountant>("category"));
+        categoryTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, String>("category"));
         statusTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, String>("status"));
         requestIDTC.setCellValueFactory(new PropertyValueFactory<BudgetRequest, Integer>("id"));
         budgetRequestsTV.getItems().addAll(budgetRequests);
