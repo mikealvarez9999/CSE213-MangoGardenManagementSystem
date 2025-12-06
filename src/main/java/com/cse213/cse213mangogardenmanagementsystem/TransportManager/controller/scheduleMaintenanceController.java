@@ -33,12 +33,12 @@ public class scheduleMaintenanceController {
     private DatePicker MaintenanceDateDatePicker;
 
     private ObservableList<Vehicles> vehicleData;
-    private TransportManager manager = new TransportManager();
+//    private TransportManager manager = new TransportManager();
 
     @FXML
     public void initialize() {
 
-        vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
+        vehicleData = FXCollections.observableArrayList(TransportManager.getVehicleList());
 
         vehicleIDColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleID"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
@@ -68,7 +68,7 @@ public class scheduleMaintenanceController {
             return;
         }
 
-        manager.updateMaintenanceDate(selectedID, selectedDate);
+        TransportManager.updateMaintenanceDate(selectedID, selectedDate);
 
         for (Vehicles v : vehicleData) {
             if (v.getVehicleID().equals(selectedID)) {

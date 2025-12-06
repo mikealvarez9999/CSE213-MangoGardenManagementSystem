@@ -5,12 +5,43 @@ import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class GardenWorker {
+public class GardenWorker extends Employee {
+
+    private double salaryRate;
 
 
     private static final String TOOL_REQUEST_FILE = "toolRequests.bin";
     private static final String FIELD_ISSUES_FILE = "fieldIssues.bin";
     private static final String DAILY_HARVEST_FILE = "dailyHarvest.bin";
+
+    public GardenWorker(String username, String password, String employeeID, String name) {
+        super(username, password, employeeID, name, "GardenWorker");
+    }
+
+    public double getSalaryRate() {
+        return salaryRate ;
+    }
+
+    public int getWorkerID() {
+        return Integer.parseInt(this.getEmployeeID());
+
+    }
+
+    public String getName(){
+        return "Dummy Name";
+    }
+
+    public boolean setSalaryRate(double newSalaryRate) {
+        try {
+            this.salaryRate = newSalaryRate;
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+
 
     // Tool Requests
     public static ObservableList<ToolRequest> getToolRequests() {

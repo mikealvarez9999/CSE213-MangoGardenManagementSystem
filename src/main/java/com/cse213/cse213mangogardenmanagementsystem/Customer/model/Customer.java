@@ -1,15 +1,20 @@
 package com.cse213.cse213mangogardenmanagementsystem.Customer.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.User;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer extends User {
     private String customerID, address;
     private ArrayList<Order> orderList;
 
     private static final String ORDER_FILE = "Orders.bin";
+
+    public Customer(String userName, String userPwd) {
+        super(userName, userPwd);
+    }
 
     public static boolean addOrderToFile(Order orderToAdd){
         try {

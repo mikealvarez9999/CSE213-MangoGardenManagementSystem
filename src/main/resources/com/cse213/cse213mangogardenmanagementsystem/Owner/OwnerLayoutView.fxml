@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.OwnerController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Owner!" onAction="#onHelloButtonClick"/>
-</VBox>
+<!-- Background is near white: #fefefe -->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Owner.controller.OwnerController">
+
+    <!-- TOP: Header/Welcome Area (Primary Dark Green: #1E4E43FF) -->
+    <top>
+        <VBox alignment="CENTER_LEFT" style="-fx-background-color: #1E4E43FF; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="MANGO GARDEN - OWNER" textFill="#fefefe">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <!-- Welcome Label uses Bright Yellow/Green accent -->
+                <Label fx:id="welcomeLabel" text="Welcome Message Placeholder" textFill="#F0F347">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- LEFT: Navigation Menu (Primary Dark Green: #1E4E43FF) -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="560.0" prefWidth="263.0" spacing="15.0" style="-fx-background-color: #1e4e43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
+            <children>
+
+                <!-- Navigation Buttons (Bright Yellow/Green #F0F347 with Dark Green Text #1E4E43FF) -->
+                <Button maxWidth="Infinity" onAction="#loadTaskSummaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Task Summary" />
+                <Button maxWidth="Infinity" onAction="#loadSalesSummaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Sales Summary" />
+
+                <Button maxWidth="Infinity" onAction="#loadInventorySummaryView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View Inventory Summary" />
+                <Button maxWidth="Infinity" onAction="#loadAddNewEmployeesView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Add New Employees" />
+                <Button maxWidth="Infinity" onAction="#loadViewAllEmployeesView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="View All Employees" />
+                <Button maxWidth="Infinity" onAction="#loadFireEmployeesView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Fire Employees" />
+                <Button maxWidth="Infinity" onAction="#loadSpecialOrdersView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Approve Special Orders" />
+                <Button maxWidth="Infinity" onAction="#loadLargeExpenseRequestsView" style="-fx-background-color: #E08854; -fx-text-fill: #1E4E43FF; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" text="Approve Large Expense Requests" />
+                <Label style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" text="Ver 1.0" />
+            </children>
+            <BorderPane.margin>
+                <Insets right="5.0" />
+            </BorderPane.margin>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Dynamic Content Area (Content background remains #fefefe) -->
+    <center>
+        <VBox fx:id="contentContainer" alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 20px;">
+            <!-- Text uses the Primary Dark Color -->
+            <Label style="-fx-font-size: 18px; -fx-opacity: 0.7; -fx-padding: 50px; -fx-text-fill: #1E4E43FF;" text="Select a navigation item to view content." />
+        </VBox>
+    </center>
+</BorderPane>

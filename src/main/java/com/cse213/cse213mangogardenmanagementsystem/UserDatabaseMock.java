@@ -11,18 +11,18 @@ public class UserDatabaseMock {
 
     private static final List<Employee> ALL_USERS = List.of(
             // General Manager (Test User)
-            new Employee("gm", "12345", "E001", "Alice Smith", "GeneralManager"),
+            new Employee("gm", "12345", "E001", "Raiyan Boss", "GeneralManager"),
 
             // Owner Test User
-            new Employee("owner", "123", "E000", "Bob Owner", "Owner"),
+            new Employee("owner", "123", "E000", "Rais Bhaiyer chele", "Owner"),
 
             // Other roles for testing the loading paths
-            new Employee("acc", "12345", "E002", "Charlie Accountant", "Accountant"),
-            new Employee("wm", "12345", "E001", "Alice Smith", "WarehouseManager"),
-            new Employee("tm", "12345", "E001", "Alice Smith", "TransportManager"),
-            new Employee("fs", "12345", "E001", "Alice Smith", "FieldSupervisor"),
-            new Employee("gw", "12345", "E001", "Alice Smith", "GardenWorker"),
-            new Employee("customer", "12345", "E001", "Alice Smith", "Customer")
+            new Employee("acc", "12345", "E002", "Commerce er Zaid", "Accountant"),
+            new Employee("wm", "12345", "E001", "Kiosk Painter", "WarehouseManager"),
+            new Employee("tm", "12345", "E001", "Uthao Uddin", "TransportManager"),
+            new Employee("fs", "12345", "E001", "Ostad", "FieldSupervisor"),
+            new Employee("gw", "12345", "E001", "Gulbahar", "GardenWorker"),
+            new Employee("customer", "12345", "E001", "Borolok", "Customer")
 
     );
 

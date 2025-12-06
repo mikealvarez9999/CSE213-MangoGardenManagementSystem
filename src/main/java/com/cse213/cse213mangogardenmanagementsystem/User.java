@@ -1,8 +1,9 @@
 package com.cse213.cse213mangogardenmanagementsystem;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class User {
+public abstract class User implements Serializable {
     // CRITICAL FIX: Removed 'static'. These must be instance fields.
     protected String userName;
     protected String userPwd;

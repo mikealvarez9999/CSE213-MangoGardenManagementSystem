@@ -1,12 +1,13 @@
 package com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class FieldSupervisor {
+public class FieldSupervisor extends Employee  {
 
     // --- PERSISTENCE SETUP ---
     private static final String Worker_FILE = "Workers.bin";
@@ -26,7 +27,6 @@ public class FieldSupervisor {
     private static ObservableList<DailySummary> SUMMARIES = FileReadWrite.loadData(DailySummary.class, SUMMARY_FILE);
 
     static {
-        // Mock data initialization if lists are empty
         if (WorkerS.isEmpty()) {
             WorkerS.addAll(new Worker("W101", "John Doe"), new Worker("W102", "Jane Smith"), new Worker("W103", "Abe Link"));
             FileReadWrite.saveData(WorkerS, Worker_FILE);
@@ -39,6 +39,10 @@ public class FieldSupervisor {
             TASKS.addAll(new Task("Some tash"), new Task("more task"));
             FileReadWrite.saveData(TASKS, TASK_FILE);
         }
+    }
+
+    public FieldSupervisor(String username, String password, String employeeID, String name) {
+        super(username, password, employeeID, name, "FieldSupervisor");
     }
 
 

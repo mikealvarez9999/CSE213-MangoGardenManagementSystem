@@ -23,7 +23,7 @@ public class requestVehicleServicingBudgetController {
     @FXML private Label notelabel;
 
     private ObservableList<Vehicles> vehicleData;
-    private TransportManager manager = new TransportManager();
+//    private TransportManager manager = new TransportManager();
 
     @FXML
     public void initialize() {
@@ -41,7 +41,7 @@ public class requestVehicleServicingBudgetController {
         );
 
         // Load vehicle list
-        vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
+        vehicleData = FXCollections.observableArrayList(TransportManager.getVehicleList());
         serviceBudgetTableView.setItems(vehicleData);
 
         // Fill ComboBox

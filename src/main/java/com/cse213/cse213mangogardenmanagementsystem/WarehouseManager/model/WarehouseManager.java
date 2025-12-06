@@ -1,13 +1,20 @@
 package com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class WarehouseManager {
+import java.io.Serializable;
+
+public class WarehouseManager extends Employee implements Serializable {
 
     private static final String FILE_NAME = "batchData.bin";
     private static final String INV_FILE_NAME = "inventoryData.bin";
+
+    public WarehouseManager(String username, String password, String employeeID, String name) {
+        super(username, password, employeeID, name, "WarehouseManager");
+    }
 
     public static boolean recordBatch(ObservableList<MangoBatch> newBatchList){
         ObservableList<MangoBatch> existingBatches = getMangoBatch();

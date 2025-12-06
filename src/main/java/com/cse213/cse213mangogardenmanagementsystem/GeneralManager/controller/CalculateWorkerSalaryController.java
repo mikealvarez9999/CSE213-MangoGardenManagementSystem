@@ -1,6 +1,6 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
-import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GardenWorker;
+import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.GardenWorker;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GeneralManager;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Salary;
 import javafx.collections.ObservableList;

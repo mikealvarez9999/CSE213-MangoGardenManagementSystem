@@ -31,7 +31,7 @@ public class assignDriversController {
     private ObservableList<Drivers> driverData;
     private ObservableList<Vehicles> vehicleData;
 
-    private TransportManager manager = new TransportManager();
+//    private TransportManager manager = new TransportManager();
 
     @FXML
     public void initialize() {
@@ -41,7 +41,7 @@ public class assignDriversController {
         licenseTypeColumn.setCellValueFactory(new PropertyValueFactory<>("licenseType"));
         availabilityforDriverColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        driverData = FXCollections.observableArrayList(manager.getDriverList());
+        driverData = FXCollections.observableArrayList(TransportManager.getDriverList());
         driverDetailsTableView.setItems(driverData);
 
         for (Drivers d : driverData) {
@@ -53,7 +53,7 @@ public class assignDriversController {
         capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
+        vehicleData = FXCollections.observableArrayList(TransportManager.getVehicleList());
         vehicledetailsTableView.setItems(vehicleData);
 
         for (Vehicles v : vehicleData) {
@@ -71,7 +71,7 @@ public class assignDriversController {
             return;
         }
 
-        manager.assignDriverToVehicle(driverID, vehicleID);
+        TransportManager.assignDriverToVehicle(driverID, vehicleID);
 
         for (Drivers d : driverData) {
             if (d.getDriverID().equals(driverID)) {

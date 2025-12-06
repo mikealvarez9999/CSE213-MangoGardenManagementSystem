@@ -1,21 +1,25 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model;
 
 import com.cse213.cse213mangogardenmanagementsystem.Accountant.model.BudgetRequest;
-import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.GardenWorker;
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
+import com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model.GardenWorker;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.File;
+import java.io.Serializable;
 
-public class GeneralManager {
-    public GeneralManager(String gmUser, String number, String e001, String aliceSmith) {
-    }
+public class GeneralManager extends Employee implements Serializable {
+
 
     private static final String TASK_FILE = "Tasks.bin";
     private static final String WORKER_FILE = "Workers.bin";
     private static final String SALARY_RECORDS_FILE = "SalaryRecords.bin";
     private static final String BUDGET_REQUESTS_FILE = "BudgetRequests.bin";
+
+    public GeneralManager(String username, String password, String employeeID, String name) {
+        super(username, password, employeeID, name, "GeneralManager");
+    }
 
     public static boolean addTaskToFile(Task task){
         try {

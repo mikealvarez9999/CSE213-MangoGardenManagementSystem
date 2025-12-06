@@ -1,10 +1,13 @@
 package com.cse213.cse213mangogardenmanagementsystem.Accountant.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.ObservableList;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Accountant {
+public class Accountant extends Employee implements Serializable {
 
     private static final String TRANSACTION_FILE_NAME = "transactions.bin";
     private static ObservableList<Transaction> TRANSACTION_RECORDS = FileReadWrite.loadData(Transaction.class, TRANSACTION_FILE_NAME);
@@ -23,6 +26,10 @@ public class Accountant {
 
     private static final String MAINT_REQUEST_FILE_NAME = "maint_requests.bin";
     private static ObservableList<VehicleMaintRequest> MAINT_RECORDS = FileReadWrite.loadData(VehicleMaintRequest.class, MAINT_REQUEST_FILE_NAME);
+
+    public Accountant(String username, String password, String employeeID, String name) {
+        super(username, password, employeeID, name, "Accountant");
+    }
 
 
     public static Transaction recordTransaction(double amount, String type, String category, LocalDate date, String description) {

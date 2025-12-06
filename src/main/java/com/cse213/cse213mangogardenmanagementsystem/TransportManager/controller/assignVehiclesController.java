@@ -29,7 +29,7 @@ public class assignVehiclesController {
     private ObservableList<Vehicles> vehicleData;
     private ObservableList<orders> orderData;
 
-    private TransportManager manager = new TransportManager();
+//    private TransportManager manager = new TransportManager();
 
     @FXML
     public void initialize() {
@@ -39,7 +39,7 @@ public class assignVehiclesController {
         capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        vehicleData = FXCollections.observableArrayList(manager.getVehicleList());
+        vehicleData = FXCollections.observableArrayList(TransportManager.getVehicleList());
         assignVehiclesTableView.setItems(vehicleData);
 
         for (Vehicles v : vehicleData) {
@@ -50,7 +50,7 @@ public class assignVehiclesController {
         mangoQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        orderData = FXCollections.observableArrayList(manager.getOrderList());
+        orderData = FXCollections.observableArrayList(TransportManager.getOrderList());
         orderListForVehiclesTableView.setItems(orderData);
 
         for (orders o : orderData) {
