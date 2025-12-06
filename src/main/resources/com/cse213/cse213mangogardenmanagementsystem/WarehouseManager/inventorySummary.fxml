@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="335.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.controller.inventorySummaryController">
+   <children>
+      <TableView fx:id="inventorySummaryTableView" layoutX="161.0" layoutY="64.0" prefHeight="132.0" prefWidth="226.0">
+        <columns>
+          <TableColumn fx:id="batchIdColumn" prefWidth="75.0" text="batchID" maxWidth="750.0" minWidth="30.0"/>
+          <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" maxWidth="750.0" minWidth="30.0"/>
+            <TableColumn fx:id="spoilageColumn" prefWidth="75.0" text="Spoilage" maxWidth="750.0" minWidth="30.0"/>
+        </columns>
+      </TableView>
+      <Label layoutX="241.0" layoutY="24.0" text="inventory summary">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="totalQuantityTextArea" disable="true" focusTraversable="false" layoutX="180.0" layoutY="214.0" prefHeight="40.0" prefWidth="78.0" />
+      <Text layoutX="102.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="total quantity" />
+      <TextArea fx:id="totalSpoilageTextArea" disable="true" focusTraversable="false" layoutX="352.0" layoutY="214.0" prefHeight="40.0" prefWidth="78.0" />
+      <Text layoutX="274.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="total Spoilage" />
+   </children>
+</AnchorPane>

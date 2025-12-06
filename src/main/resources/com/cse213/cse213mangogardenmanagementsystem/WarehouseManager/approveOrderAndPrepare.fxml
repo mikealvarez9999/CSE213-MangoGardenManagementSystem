@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="293.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.controller.approveOrderAndPrepareController">
+   <children>
+      <Label alignment="CENTER" layoutX="185.0" layoutY="26.0" prefHeight="20.0" prefWidth="230.0" text="Approve order and prepare" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Label>
+      <TableView fx:id="orderAndPrepareTableView" layoutX="118.0" layoutY="69.0" prefHeight="147.0" prefWidth="378.0">
+        <columns>
+          <TableColumn fx:id="orderIdCulumn" prefWidth="75.0" text="orderID" />
+          <TableColumn fx:id="amountColumn" prefWidth="103.20001220703125" text="AMOUNT" />
+            <TableColumn fx:id="statusColumn" prefWidth="47.20001220703125" text="Status" />
+            <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
+        </columns>
+      </TableView>
+      <Text layoutX="104.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID:" />
+      <ComboBox fx:id="orderIDComboBox" layoutX="161.0" layoutY="238.0" prefHeight="26.0" prefWidth="138.0" />
+      <Button layoutX="379.0" layoutY="239.0" mnemonicParsing="false" onAction="#packingProcessOnMouseClick" text="packing process" />
+   </children>
+</AnchorPane>
