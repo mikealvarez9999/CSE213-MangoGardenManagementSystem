@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.Employee;
+import com.cse213.cse213mangogardenmanagementsystem.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class GeneralManagerController {
     @FXML
     private VBox contentContainer; // The area where dynamic content (views) will be loaded
 
-    private Employee currentUser;
+    private User currentUser;
 
     // Base path for FXML component files within the GeneralManager resource folder
     private static final String FXML_BASE_PATH = "/com/cse213/cse213mangogardenmanagementsystem/GeneralManager/";
