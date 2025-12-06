@@ -1,5 +1,6 @@
 package com.cse213.cse213mangogardenmanagementsystem.TransportManager.controller;
 
+import com.cse213.cse213mangogardenmanagementsystem.Customer.model.Order;
 import com.cse213.cse213mangogardenmanagementsystem.TransportManager.model.orders;
 import com.cse213.cse213mangogardenmanagementsystem.TransportManager.model.TransportManager;
 import com.cse213.cse213mangogardenmanagementsystem.TransportManager.model.Vehicles;
@@ -20,14 +21,14 @@ public class assignVehiclesController {
     @FXML private TableColumn<Vehicles, String> availabilityColumn;
     @FXML private ComboBox<String> vehicleIdComboBox;
 
-    @FXML private TableView<orders> orderListForVehiclesTableView;
+    @FXML private TableView<Order> orderListForVehiclesTableView;
     @FXML private TableColumn<orders, String> orderIdColumn;
     @FXML private TableColumn<orders, Number> mangoQuantityColumn;
     @FXML private TableColumn<orders, String> addressColumn;
     @FXML private ComboBox<String> orderIDComboBox;
 
     private ObservableList<Vehicles> vehicleData;
-    private ObservableList<orders> orderData;
+    private ObservableList<Order> orderData;
 
 //    private TransportManager manager = new TransportManager();
 
@@ -53,8 +54,8 @@ public class assignVehiclesController {
         orderData = FXCollections.observableArrayList(TransportManager.getOrderList());
         orderListForVehiclesTableView.setItems(orderData);
 
-        for (orders o : orderData) {
-            orderIDComboBox.getItems().add(o.getOrderID());
+        for (Order o : orderData) {
+            orderIDComboBox.getItems().add(String.valueOf( o.getOrderID()));
         }
     }
 

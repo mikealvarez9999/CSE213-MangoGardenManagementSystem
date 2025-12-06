@@ -18,8 +18,8 @@
       <TableView fx:id="assignedTaskTableView" layoutX="45.0" layoutY="146.0" prefHeight="200.0" prefWidth="527.0">
         <columns>
           <TableColumn fx:id="taskIDColumn" prefWidth="105.0" text="TaskID" />
-            <TableColumn fx:id="locationColumn" prefWidth="105.0" text="Location" />
-            <TableColumn fx:id="cropTypeColumn" prefWidth="105.0" text="CropType" />
+            <TableColumn fx:id="locationColumn" prefWidth="105.0" text="Detail" />
+            <TableColumn fx:id="cropTypeColumn" prefWidth="105.0" text="AssingDate" />
             <TableColumn fx:id="deadLineColumn" prefWidth="105.0" text="DeadLine" />
             <TableColumn fx:id="statusColumn" prefWidth="105.0" text="Status" />
         </columns>

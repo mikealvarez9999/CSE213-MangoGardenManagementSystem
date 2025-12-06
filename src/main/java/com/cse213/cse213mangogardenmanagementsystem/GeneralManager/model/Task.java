@@ -1,6 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model;
 
 import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.FieldSupervisor;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,7 +14,8 @@ public class Task implements Serializable {
     protected int taskID;
     protected String details;
     protected String status;
-    protected String assignedTo;
+//    protected String assignedTo;
+    private ObservableList<String> assignedWorkers;
     protected LocalDate assignedOn, expectedCompletion;
 
     public boolean updateStatus(String newStatus){
@@ -29,6 +31,10 @@ public class Task implements Serializable {
         return taskID;
     }
 
+    public int getID(){
+        return taskID;
+    }
+
     public String getDetails() {
         return details;
     }
@@ -37,8 +43,12 @@ public class Task implements Serializable {
         return status;
     }
 
-    public String getAssignedTo() {
-        return assignedTo;
+//    public String getAssignedTo() {
+//        return assignedTo;
+//    }
+
+    public ObservableList<String> getAssignedWorkers (){
+        return assignedWorkers;
     }
 
     public LocalDate getAssignedOn() {
@@ -53,20 +63,36 @@ public class Task implements Serializable {
         this.status = status;
     }
 
-    public Task(String details, String status, String assignedTo, LocalDate assignedOn, LocalDate expectedCompletion) {
+    public Task(String details, String status, ObservableList<String> assignedWorkers, LocalDate assignedOn, LocalDate expectedCompletion) {
         this.taskID = 100 + RANDOM.nextInt(900);
         this.details = details;
-        this.status = status;
-        this.assignedTo = assignedTo;
+        this.status = "Pending";
+//        this.assignedTo = assignedTo;
+        this.assignedWorkers = assignedWorkers;
         this.assignedOn = assignedOn;
         this.expectedCompletion = expectedCompletion;
+    }
+
+    public Task(String details, String status, LocalDate assignedOn, LocalDate expectedCompletion) {
+        this.taskID = 100 + RANDOM.nextInt(900);
+        this.details = details;
+        this.status = "Pending";
+//        this.assignedTo = assignedTo;
+        this.assignedOn = assignedOn;
+        this.expectedCompletion = expectedCompletion;
+    }
+
+    public Task(String details) {
+        this.taskID = 100 + RANDOM.nextInt(900);
+        this.details = details;
+        this.status = "Pending";
     }
 
     @Override
     public String toString() {
         return "Task ID: " + taskID + "\n" +
                 "  Status: " + status + "\n" +
-                "  Assigned To: " + assignedTo + "\n" +
+                "  Assigned To: " + assignedWorkers.toString() + "\n" +
                 "  Assigned On: " + assignedOn + "\n" +
                 "  Expected Completion: " + expectedCompletion + "\n" +
                 "  Details: " + details + "\n" +

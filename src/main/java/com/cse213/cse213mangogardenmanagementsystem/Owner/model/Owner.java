@@ -14,8 +14,8 @@ import java.io.Serializable;
 
 public class Owner extends User implements Serializable {
     private static final String EMPLOYEES_FILE = "Employees.bin";
-    private static final String LARGE_EXPENSES_FILE = "Large Expenses.bin";
-    private static final String SPECIAL_ORDERS_FILE = "Special Orders.bin";
+    private static final String LARGE_EXPENSES_FILE = "LargeExpenses.bin";
+    private static final String SPECIAL_ORDERS_FILE = "SpecialOrders.bin";
     private static final String ORDERS_FILE = "Orders.bin";
     private static final String TASK_FILE = "Tasks.bin";
 

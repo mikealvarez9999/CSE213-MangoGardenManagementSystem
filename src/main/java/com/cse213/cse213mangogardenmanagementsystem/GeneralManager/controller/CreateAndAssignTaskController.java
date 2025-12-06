@@ -21,7 +21,7 @@ public class CreateAndAssignTaskController {
     public void createButtonOA(ActionEvent actionEvent) {
         // input validation
 
-        Task createdTask = new Task(taskDetailsTA.getText(), "Pending", fieldSupervisorCB.getValue(), LocalDate.now(), expectedDP.getValue());
+        Task createdTask = new Task(taskDetailsTA.getText(), "Pending",  LocalDate.now(), expectedDP.getValue());
 
         if (GeneralManager.addTaskToFile(createdTask)){
             successLabel.setText("");

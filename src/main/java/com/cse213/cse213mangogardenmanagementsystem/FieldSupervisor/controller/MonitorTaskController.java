@@ -1,7 +1,7 @@
 package com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.controller;
 
 import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.FieldSupervisor;
-import com.cse213.cse213mangogardenmanagementsystem.FieldSupervisor.model.Task;
+import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -40,7 +40,7 @@ public class MonitorTaskController
             System.err.println("Select a task to view its report.");
             return;
         }
-        System.out.println("Viewing detailed report for Task ID: " + selected.getId());
+        System.out.println("Viewing detailed report for Task ID: " + selected.getID());
     }
 
     @FXML
@@ -56,9 +56,9 @@ public class MonitorTaskController
             return;
         }
 
-        FieldSupervisor.markTaskVerified(selected.getId());
+        FieldSupervisor.markTaskVerified(selected.getID());
         taskCompletionTable.refresh();
-        System.out.println("Task ID " + selected.getId() + " marked as verified.");
+        System.out.println("Task ID " + selected.getID() + " marked as verified.");
     }
 
     @FXML
