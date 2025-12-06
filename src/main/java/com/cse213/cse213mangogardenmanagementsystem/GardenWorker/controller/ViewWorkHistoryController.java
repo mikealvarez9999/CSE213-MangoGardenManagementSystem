@@ -6,7 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class ViewWorkHistoryController {
+public class
+ViewWorkHistoryController {
 
     @FXML
     private DatePicker dateDatePicker;

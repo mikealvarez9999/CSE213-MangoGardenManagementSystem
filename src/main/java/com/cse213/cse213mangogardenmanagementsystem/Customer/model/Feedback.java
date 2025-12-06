@@ -8,9 +8,11 @@ public class Feedback implements Serializable {
     private String subject;
     private String feedback;
 
+    // Default constructor
     public Feedback() {
     }
 
+    // Parameterized constructor
     public Feedback(String orderID, String subject, String feedback) {
         this.orderID = orderID;
         this.subject = subject;
@@ -41,5 +43,14 @@ public class Feedback implements Serializable {
 
     public void setFeedback(String feedback) {
         this.feedback = feedback;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "orderID='" + orderID + '\'' +
+                ", subject='" + subject + '\'' +
+                ", feedback='" + feedback + '\'' +
+                '}';
     }
 }

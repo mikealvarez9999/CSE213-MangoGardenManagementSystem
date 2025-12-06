@@ -1,5 +1,6 @@
 package com.cse213.cse213mangogardenmanagementsystem.GardenWorker.model;
 
+import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

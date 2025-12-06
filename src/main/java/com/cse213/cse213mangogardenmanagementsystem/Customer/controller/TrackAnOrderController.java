@@ -8,8 +8,9 @@ import javafx.scene.control.*;
 
 public class TrackAnOrderController {
 
+
     @FXML
-    private ComboBox<String> orderIDComboBox;
+    private ComboBox<String> orderIdComboBox;
     @FXML
     private Button trackOrderButton;
     @FXML
@@ -33,7 +34,7 @@ public class TrackAnOrderController {
     public void initialize() {
 
         // ComboBox demo IDs
-        orderIDComboBox.getItems().addAll("ORD001", "ORD002", "ORD003");
+        orderIdComboBox.getItems().addAll("ORD001", "ORD002", "ORD003");
 
         // Map columns
         statusColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("status"));
@@ -53,7 +54,7 @@ public class TrackAnOrderController {
     @FXML
     public void trackOrderButtonOnAction(ActionEvent event) {
 
-        String selectedOrderID = orderIDComboBox.getValue();
+        String selectedOrderID = orderIdComboBox.getValue();
 
         if (selectedOrderID == null) {
             orderDataTextArea.setText("Please select an Order ID.");
