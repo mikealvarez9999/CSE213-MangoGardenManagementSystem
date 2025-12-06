@@ -6,6 +6,7 @@ import com.cse213.cse213mangogardenmanagementsystem.Employee;
 import com.cse213.cse213mangogardenmanagementsystem.GeneralManager.model.Task;
 import com.cse213.cse213mangogardenmanagementsystem.Customer.model.Order;
 import com.cse213.cse213mangogardenmanagementsystem.User;
+import com.cse213.cse213mangogardenmanagementsystem.WarehouseManager.model.MangoInventory;
 import com.cse213.cse213mangogardenmanagementsystem.util.FileReadWrite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,7 @@ public class Owner extends User implements Serializable {
     private static final String SPECIAL_ORDERS_FILE = "Special Orders.bin";
     private static final String ORDERS_FILE = "Orders.bin";
     private static final String TASK_FILE = "Tasks.bin";
+    private static final String INVENTORY_FILE = "inventoryData.bin"
 
     public Owner(String userName, String userPwd) {
         super(userName, userPwd);
@@ -109,5 +111,11 @@ public class Owner extends User implements Serializable {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static ObservableList<MangoInventory> loadInventory(){
+        ObservableList<MangoInventory> inventoryList = FXCollections.observableArrayList();
+        inventoryList = FileReadWrite.loadData(MangoInventory.class, INVENTORY_FILE);
+        return inventoryList;
     }
 }
