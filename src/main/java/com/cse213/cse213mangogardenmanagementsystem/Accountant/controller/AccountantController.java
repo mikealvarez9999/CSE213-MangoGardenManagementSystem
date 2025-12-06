@@ -86,6 +86,18 @@ public class AccountantController {
         loadFXMLView("ProcessVehicleRequestView.fxml");
     }
 
+    @FXML
+    public void logout() throws IOException {
+        String path = "/com/cse213/cse213mangogardenmanagementsystem/Login.fxml";
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        Node view = loader.load();
+
+        contentContainer.getChildren().clear();
+        contentContainer.getChildren().add(view);
+
+    }
+
 
     /**
      * Loads an FXML file into the contentContainer.
