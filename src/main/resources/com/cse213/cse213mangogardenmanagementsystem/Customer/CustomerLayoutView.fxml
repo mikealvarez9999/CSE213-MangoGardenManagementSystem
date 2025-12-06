@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="900.0" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse213.cse213mangogardenmanagementsystem.Customer.controller.CustomerController">
+
+    <top>
+        <VBox alignment="CENTER_LEFT" style="-fx-background-color: #1E4E43FF; -fx-padding: 20px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="MANGO GARDEN - Customer" textFill="#fefefe">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="welcomeLabel" text="Welcome Message Placeholder" textFill="#fefefe">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="240.0" spacing="15.0" style="-fx-background-color: #1e4e43; -fx-padding: 20px;" BorderPane.alignment="CENTER">
+            <children>
+                <Button onAction="#loadPlaceAnOrder" text="Place An Order" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadTrackAnOrder" text="Track An Order" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadCancelAnOrder" text="Cancel Order" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadViewOrderHistory" text="View Order History" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadMakePayments" text="Make Payments" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadRequestInvoice" text="Request Invoice" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadProvideFeedback" text="Provide Feedback" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+                <Button onAction="#loadContactSupport" text="Contact Support" maxWidth="Infinity"
+                        style="-fx-background-color: #E08854; -fx-text-fill: #fefefe; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 8px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3); -fx-pref-height: 45px;" />
+
+
+                <VBox VBox.vgrow="ALWAYS" />
+                <Label text="Ver 1.0" style="-fx-opacity: 0.7; -fx-font-size: 10px; -fx-text-fill: #fefefe;" />
+            </children>
+            <BorderPane.margin>
+                <Insets right="5.0" />
+            </BorderPane.margin>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="contentContainer" alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 20px;">
+            <Label text="Select a navigation item to view content." style="-fx-font-size: 18px; -fx-opacity: 0.7; -fx-padding: 50px; -fx-text-fill: #1E4E43FF;" />
+        </VBox>
+    </center>
+</BorderPane>
