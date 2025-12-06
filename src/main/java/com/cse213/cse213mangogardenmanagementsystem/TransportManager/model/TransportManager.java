@@ -24,7 +24,6 @@ public class TransportManager implements Serializable {
         if (orderList.isEmpty()) loadOrderDemoData();
     }
 
-    // --- Vehicles ---
     private void loadVehicleDemoData() {
         vehicleList.add(new Vehicles("V1", "Truck", "Available", 2000, null));
         vehicleList.add(new Vehicles("V2", "Van", "Unavailable", 800, null));
@@ -46,7 +45,6 @@ public class TransportManager implements Serializable {
         } catch (Exception e) { vehicleList = new ArrayList<>(); }
     }
 
-    // --- Drivers ---
     private void loadDriverDemoData() {
         driverList.add(new Drivers("D1", "Ali", "Heavy", "Available"));
         driverList.add(new Drivers("D2", "Babu", "Light", "Available"));
@@ -68,13 +66,12 @@ public class TransportManager implements Serializable {
         } catch (Exception e) { driverList = new ArrayList<>(); }
     }
 
-    // --- Orders ---
     private void loadOrderDemoData() {
-        orderList.add(new orders("O1", 100, "Field 1"));
-        orderList.add(new orders("O2", 50, "Field 2"));
-        orderList.add(new orders("O3", 70, "Field 3"));
-        orderList.add(new orders("O4", 90, "Field 4"));
-        orderList.add(new orders("O5", 60, "Field 5"));
+        orderList.add(new orders("O1", 100, "Uttara"));
+        orderList.add(new orders("O2", 50, "Mirpur"));
+        orderList.add(new orders("O3", 70, "dhanmondi"));
+        orderList.add(new orders("O4", 90, "Bashundhara"));
+        orderList.add(new orders("O5", 60, "Ajompur"));
         saveOrderData();
     }
 
@@ -90,7 +87,6 @@ public class TransportManager implements Serializable {
         } catch (Exception e) { orderList = new ArrayList<>(); }
     }
 
-    // --- Assign driver to vehicle ---
     public void assignDriverToVehicle(String driverID, String vehicleID) {
         Drivers d = driverList.stream().filter(dr -> dr.getDriverID().equals(driverID)).findFirst().orElse(null);
         Vehicles v = vehicleList.stream().filter(ve -> ve.getVehicleID().equals(vehicleID)).findFirst().orElse(null);
@@ -103,7 +99,7 @@ public class TransportManager implements Serializable {
         }
     }
 
-    // --- Update maintenance date ---
+
     public void updateMaintenanceDate(String vehicleID, LocalDate date) {
         for (Vehicles v : vehicleList) {
             if (v.getVehicleID().equals(vehicleID)) {
